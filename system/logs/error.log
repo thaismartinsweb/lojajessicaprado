@@ -1,0 +1,35 @@
+2014-12-13 14:46:09 - PHP Notice:  Undefined variable: button_readmore in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/product/category.tpl on line 125
+2014-12-13 14:46:09 - PHP Notice:  Undefined variable: button_readmore in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/product/category.tpl on line 125
+2014-12-13 15:17:06 - PHP Warning:  Invalid argument supplied for foreach() in /home/thais/workspace/loja/admin/controller/module/featured.php on line 124
+2014-12-13 15:17:25 - PHP Warning:  Invalid argument supplied for foreach() in /home/thais/workspace/loja/admin/controller/module/featured.php on line 124
+2014-12-13 15:17:52 - PHP Warning:  array_slice() expects parameter 1 to be array, string given in /home/thais/workspace/loja/catalog/controller/module/featured.php on line 25
+2014-12-13 15:17:52 - PHP Warning:  Invalid argument supplied for foreach() in /home/thais/workspace/loja/catalog/controller/module/featured.php on line 27
+2014-12-13 15:17:58 - PHP Warning:  Invalid argument supplied for foreach() in /home/thais/workspace/loja/admin/controller/module/featured.php on line 124
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 5
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 44
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 5
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 44
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 5
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 44
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 5
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 44
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 5
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 44
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 5
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 44
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 5
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 44
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 5
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 44
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 5
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 44
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 5
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 44
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 5
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 44
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 5
+2014-12-13 15:21:26 - PHP Notice:  Undefined variable: i in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/module/featured.tpl on line 44
+2014-12-13 16:51:54 - PHP Notice:  Undefined variable: total in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/common/cart.tpl on line 44
+2014-12-13 16:51:54 - PHP Notice:  Undefined variable: total in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/common/cart.tpl on line 45
+2014-12-13 16:52:29 - PHP Notice:  Undefined variable: total in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/common/cart.tpl on line 44
+2014-12-13 16:52:29 - PHP Notice:  Undefined variable: total in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/common/cart.tpl on line 45

@@ -54,6 +54,7 @@ class ControllerProductCompare extends Controller {
 
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_cart'] = $this->language->get('button_cart');
+		$data['button_readmore'] = $this->language->get('button_readmore');
 		$data['button_remove'] = $this->language->get('button_remove');
 
 		if (isset($this->session->data['success'])) {

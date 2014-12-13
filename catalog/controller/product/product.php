@@ -676,12 +676,6 @@ class ControllerProductProduct extends Controller {
 				$json['error'] = $this->language->get('error_rating');
 			}
 
-			if (empty($this->session->data['captcha']) || ($this->session->data['captcha'] != $this->request->post['captcha'])) {
-				$json['error'] = $this->language->get('error_captcha');
-			}
-
-			unset($this->session->data['captcha']);
-
 			if (!isset($json['error'])) {
 				$this->load->model('catalog/review');
 

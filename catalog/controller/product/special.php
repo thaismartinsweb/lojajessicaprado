@@ -77,6 +77,7 @@ class ControllerProductSpecial extends Controller {
 		$data['text_limit'] = $this->language->get('text_limit');
 
 		$data['button_cart'] = $this->language->get('button_cart');
+		$data['button_readmore'] = $this->language->get('button_readmore');
 		$data['button_wishlist'] = $this->language->get('button_wishlist');
 		$data['button_compare'] = $this->language->get('button_compare');
 		$data['button_list'] = $this->language->get('button_list');

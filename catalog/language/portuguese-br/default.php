@@ -24,6 +24,7 @@ $_['button_address_add']    = 'Adicionar endereço';
 $_['button_back']           = 'Voltar';
 $_['button_continue']       = 'Continuar';
 $_['button_cart']           = 'Comprar';
+$_['button_readmore']       = 'Ver Detalhes';
 $_['button_cancel']         = 'Cancelar';
 $_['button_compare']        = 'Comparar este produto';
 $_['button_wishlist']       = 'Adicionar à lista de desejos';
