@@ -156,9 +156,11 @@ var cart = {
 
 				if (json['success']) {
 					$('#content').parent().before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-
+					
 					$('#cart-total').html(json['total']);
-
+					
+					$('#cart-number').html(json['total_itens']);
+					
 					$('html, body').animate({ scrollTop: 0 }, 'slow');
 
 					$('#cart > ul').load('index.php?route=common/cart/info ul li');
@@ -179,6 +181,8 @@ var cart = {
 				$('#cart > button').button('reset');
 
 				$('#cart-total').html(json['total']);
+				
+				$('#cart-number').html(json['total_itens']);
 
 				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
 					location = 'index.php?route=checkout/cart';
@@ -201,6 +205,8 @@ var cart = {
 				$('#cart > button').button('reset');
 
 				$('#cart-total').html(json['total']);
+				
+				$('#cart-number').html(json['total_itens']);
 
 				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
 					location = 'index.php?route=checkout/cart';
@@ -230,6 +236,8 @@ var voucher = {
 			},
 			success: function(json) {
 				$('#cart-total').html(json['total']);
+				
+				$('#cart-number').html(json['total_itens']);
 
 				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
 					location = 'index.php?route=checkout/cart';

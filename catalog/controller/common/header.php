@@ -117,11 +117,21 @@ class ControllerCommonHeader extends Controller {
 				);
 			}
 		}
+		
+		$data['pages'] = array();
+		
+		foreach ($this->model_catalog_information->getInformations() as $result) {
+			$data['pages'][] = array(
+					'title' => $result['title'],
+					'href'  => $this->url->link('information/information', 'information_id=' . $result['information_id'])
+			);
+		}
 
 		$data['language'] = $this->load->controller('common/language');
 		$data['currency'] = $this->load->controller('common/currency');
 		$data['search'] = $this->load->controller('common/search');
 		$data['cart'] = $this->load->controller('common/cart');
+		$data['categories'] = array();
 
 		// For page specific css
 		if (isset($this->request->get['route'])) {

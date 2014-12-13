@@ -10,22 +10,24 @@
       <table class="table">
         <?php foreach ($products as $product) { ?>
         <tr>
-          <td class="text-center"><?php if ($product['thumb']) { ?>
-            <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-thumbnail" /></a>
-            <?php } ?></td>
-          <td class="text-left"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
-            <?php if ($product['option']) { ?>
-            <?php foreach ($product['option'] as $option) { ?>
-            <br />
-            <small><?php echo $option['name']; ?> <?php echo $option['value']; ?></small>
-            <br />
-            <p class="total-item"><?php echo $product['quantity']; ?>x <?php echo $product['total']; ?></p>
+          <td class="text-center">
+            <?php if ($product['thumb']) { ?>
+           		<a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-thumbnail" /></a>
             <?php } ?>
+          </td>
+          <td class="text-left">
+            <a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
+            
+            <?php if ($product['option']) { ?>
+	            <?php foreach ($product['option'] as $option) { ?>
+	            <br /><small><?php echo $option['name']; ?> <?php echo $option['value']; ?></small>
+	            <?php } ?>
             <?php } ?>
             <?php if ($product['recurring']) { ?>
-            <br />
-            <small><?php echo $text_recurring; ?> <?php echo $product['recurring']; ?></small>
-            <?php } ?></td>
+            	<br /><small><?php echo $text_recurring; ?> <?php echo $product['recurring']; ?></small>
+            <?php } ?>
+            <br /><span class="total-item"><?php echo $product['quantity']; ?>x <?php echo $product['total']; ?></span>
+          </td>
           <td class="text-center"><button type="button" onclick="cart.remove('<?php echo $product['key']; ?>');" title="<?php echo $button_remove; ?>" class="btn btn-transparent btn-sm"><i class="fa fa-times"></i></button></td>
         </tr>
         <?php } ?>

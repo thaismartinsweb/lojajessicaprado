@@ -33,3 +33,9 @@
 2014-12-13 16:51:54 - PHP Notice:  Undefined variable: total in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/common/cart.tpl on line 45
 2014-12-13 16:52:29 - PHP Notice:  Undefined variable: total in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/common/cart.tpl on line 44
 2014-12-13 16:52:29 - PHP Notice:  Undefined variable: total in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/common/cart.tpl on line 45
+2014-12-13 18:08:11 - PHP Notice:  Array to string conversion in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/common/header.tpl on line 74
+2014-12-13 18:08:11 - PHP Notice:  Array to string conversion in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/common/header.tpl on line 125
+2014-12-13 18:08:16 - PHP Notice:  Array to string conversion in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/common/header.tpl on line 74
+2014-12-13 18:08:16 - PHP Notice:  Array to string conversion in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/common/header.tpl on line 125
+2014-12-13 18:08:20 - PHP Notice:  Array to string conversion in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/common/header.tpl on line 74
+2014-12-13 18:08:20 - PHP Notice:  Array to string conversion in /home/thais/workspace/loja/catalog/view/theme/jessicaprado/template/common/header.tpl on line 125

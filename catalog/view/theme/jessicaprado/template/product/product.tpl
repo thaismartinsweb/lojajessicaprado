@@ -462,6 +462,8 @@ $('#button-cart').on('click', function() {
 				$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 				
 				$('#cart-total').html(json['total']);
+
+				$('#cart-number').html(json['total_itens']);
 				
 				$('html, body').animate({ scrollTop: 0 }, 'slow');
 				

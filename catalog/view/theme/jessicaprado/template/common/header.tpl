@@ -27,8 +27,8 @@
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<l<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,300' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
 <link href="catalog/view/theme/jessicaprado/stylesheet/stylesheet.css" rel="stylesheet">
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
@@ -108,6 +108,23 @@
 	        <?php } else { ?>
 	        	<li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
 	        <?php } ?>
+        <?php } ?>
+      </ul>
+    </div>
+  </nav>
+</div>
+<?php } ?>
+<?php if ($pages) { ?>
+<div class="container">
+  <nav id="menu" class="navbar">
+    <div class="navbar-header"><span id="category" class="visible-xs"><?php echo $text_category; ?></span>
+      <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+      	 <li><a href="<?php echo $home; ?>">Página Inicial</a></li>
+        <?php foreach ($pages as $page) { ?>
+	        <li><a href="<?php echo $page['href']; ?>"><?php echo $page['title']; ?></a></li>
         <?php } ?>
       </ul>
     </div>
