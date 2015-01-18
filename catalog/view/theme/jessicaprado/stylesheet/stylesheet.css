@@ -267,6 +267,15 @@ div.required .control-label:before {
 	font-size:10px;
 	margin-right:5px;
 }
+
+/* Shipping */
+#shipping .btn-pink {
+	background-color:#d94363;
+	border:none;
+	color:#fff;
+	font-family:'Satisfy', sans-serif;
+}
+
 /* menu */
 #menu {
 	background-color: #93d3d5;
@@ -386,6 +395,7 @@ div.required .control-label:before {
 		color: #fff;
 	}
 }
+
 /* content */
 #body-content {
 	background-color:#fff;
@@ -394,9 +404,42 @@ div.required .control-label:before {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 }
+
+#body-content .btn-pink {
+	font-size: 16px;
+	background-color:#d94363;
+	border:none;
+	color:#fff;
+	font-family:'Satisfy', sans-serif;
+}
+
+#body-content .btn-pink-sm {
+	background-color:#d94363;
+	border:none;
+	color:#fff;
+	font-family:'Satisfy', sans-serif;
+}
+
+#body-content a {
+	color:#93d3d5;
+}
+
+#body-content a:hover {
+	color:#d94363;
+}
+
+#body-content .text-danger {
+	font-size:11px;
+}
+
+#body-content .form-group {
+	min-height:80px;
+}
+
 #content {
 	min-height: 600px;
 }
+
 /* footer */
 footer {
 	margin-top: 30px;

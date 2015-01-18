@@ -29,11 +29,17 @@
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,300' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+<link href="catalog/view/theme/jessicaprado/stylesheet/lightbox.css" rel="stylesheet">
 <link href="catalog/view/theme/jessicaprado/stylesheet/stylesheet.css" rel="stylesheet">
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
 <script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/lightbox.min.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/jquery.mask.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+</script>
 <?php foreach ($scripts as $script) { ?>
 <script src="<?php echo $script; ?>" type="text/javascript"></script>
 <?php } ?>
@@ -68,10 +74,10 @@
 <header>
   <div class="container">
     <div class="row">
-      <div class="col-sm-1 col-sm-offset-1">
+      <div class="col-sm-2">
         <div id="logo">
           <?php if ($logo) { ?>
-          	<a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="img-responsive" width="50" /></a>
+          	<a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="img-responsive" /></a>
           <?php } else { ?>
           	<h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
           <?php } ?>

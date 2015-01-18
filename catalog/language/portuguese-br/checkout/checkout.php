@@ -18,11 +18,11 @@ $_['text_checkout']                  = 'Opções:';
 $_['text_i_am_returning_customer']   = 'Se você já fez um pedido e cadastrou uma conta, coloque os dados da conta abaixo:';
 $_['text_register']                  = 'Cadastrar uma conta';
 $_['text_guest']                     = 'Não cadastrar uma conta';
-$_['text_register_account']          = 'Ao cadastrar sua conta, você será capaz de comprar mais rápido, ficar atualizado sobre a situação de um pedido e acompanhar o histórico dos pedidos que você já fez.';
-$_['text_forgotten']                 = 'Solicitar nova senha';
-$_['text_your_details']              = 'Seus dados';
-$_['text_your_address']              = 'Seu endereço';
-$_['text_your_password']             = 'Sua senha de acesso';
+$_['text_register_account']          = 'Cadastre-se, facilite suas compras futuras e tenha acesso a promoções e ofertas exclusivas.';
+$_['text_forgotten']                 = 'Esqueci minha senha';
+$_['text_your_details']              = 'Dados Pessoais';
+$_['text_your_address']              = 'Endereço de Entrega';
+$_['text_your_password']             = 'Senha';
 $_['text_agree']                     = 'Eu li e concordo com o contrato de <a href="%s" class="agree"><b>%s</b></a>';
 $_['text_address_new']               = 'Utilizar um novo endereço';
 $_['text_address_existing']          = 'Utilizar um endereço cadastrado';
@@ -39,6 +39,7 @@ $_['text_week']                      = 'Semanal';
 $_['text_semi_month']                = 'Quinzenal';
 $_['text_month']                     = 'Mensal';
 $_['text_year']                      = 'Anual';
+$_['text_shipment_delivery']               = 'Entregas somente na Grande São Paulo';
 
 // Column
 $_['column_name']                    = 'Produto';
@@ -57,10 +58,12 @@ $_['entry_lastname']                 = 'Sobrenome';
 $_['entry_telephone']                = 'Telefone';
 $_['entry_fax']                      = 'Fax';
 $_['entry_address']                  = 'Escolha o endereço';
-$_['entry_company']                  = 'Referência';
+$_['entry_company']                  = 'Nome da Empresa';
 $_['entry_customer_group']           = 'Quem está comprando?';
-$_['entry_address_1']                = 'Endereço';
-$_['entry_address_2']                = 'Bairro';
+$_['entry_address']                	 = 'Endereço';
+$_['entry_address_number']           = 'Nº';
+$_['entry_address_complement']       = 'Complemento';
+$_['entry_neighborhood']             = 'Bairro';
 $_['entry_postcode']                 = 'CEP';
 $_['entry_city']                     = 'Cidade';
 $_['entry_country']                  = 'País';
@@ -80,7 +83,9 @@ $_['error_email']                    = 'O e-mail não é válido!';
 $_['error_telephone']                = 'O telefone deve ter entre 10 e 32 caracteres!';
 $_['error_password']                 = 'A senha deve ter entre 4 e 20 caracteres!';
 $_['error_confirm']                  = 'A senha repetida não foi confirmada!';
-$_['error_address_1']                = 'O endereço deve ter entre 3 e 128 caracteres!';
+$_['error_address']                = 'O endereço deve ter entre 3 e 128 caracteres!';
+$_['error_address_number']           = 'O número não é válido!';
+$_['error_neighborhood']             = 'O bairro não é válido!';
 $_['error_city']                     = 'A cidade deve ter entre 2 e 128 caracteres!';
 $_['error_postcode']                 = 'O CEP deve ter 8 caracteres!';
 $_['error_country']                  = 'Selecione o país!';
@@ -92,3 +97,7 @@ $_['error_no_shipping']              = 'Atenção: Não há opções de frete di
 $_['error_payment']                  = 'Atenção: Selecione o pagamento que deseja utilizar!';
 $_['error_no_payment']               = 'Atenção: Não há opções de pagamento disponíveis. Entre em <a href="%s">contato</a> e informe os detalhes do pedido!';
 $_['error_custom_field']             = 'O campo %s é obrigatório!';
+
+
+// Button
+$_['search_postcode'] 	             = 'Buscar Endereço';

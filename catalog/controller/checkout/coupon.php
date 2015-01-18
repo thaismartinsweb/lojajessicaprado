@@ -1,7 +1,7 @@
 <?php
 class ControllerCheckoutCoupon extends Controller {
 	public function index() {
-		if ($this->config->get('coupon_status')) {
+		if ($this->config->get('coupon_status') == 'nao_exibir') {
 			$this->load->language('checkout/coupon');
 
 			$data['heading_title'] = $this->language->get('heading_title');

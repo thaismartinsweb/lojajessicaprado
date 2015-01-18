@@ -19,7 +19,6 @@ class ControllerCheckoutLogin extends Controller {
 		$data['entry_password'] = $this->language->get('entry_password');
 
 		$data['button_continue'] = $this->language->get('button_continue');
-		$data['button_login'] = $this->language->get('button_login');
 
 		$data['checkout_guest'] = ($this->config->get('config_checkout_guest') && !$this->config->get('config_customer_price') && !$this->cart->hasDownload());
 

@@ -10,6 +10,7 @@ class ControllerCheckoutRegister extends Controller {
 		$data['text_select'] = $this->language->get('text_select');
 		$data['text_none'] = $this->language->get('text_none');
 		$data['text_loading'] = $this->language->get('text_loading');
+		$data['text_shipment_delivery'] = $this->language->get('text_shipment_delivery');
 
 		$data['entry_customer_group'] = $this->language->get('entry_customer_group');
 		$data['entry_firstname'] = $this->language->get('entry_firstname');
@@ -18,8 +19,10 @@ class ControllerCheckoutRegister extends Controller {
 		$data['entry_telephone'] = $this->language->get('entry_telephone');
 		$data['entry_fax'] = $this->language->get('entry_fax');
 		$data['entry_company'] = $this->language->get('entry_company');
-		$data['entry_address_1'] = $this->language->get('entry_address_1');
-		$data['entry_address_2'] = $this->language->get('entry_address_2');
+		$data['entry_address'] = $this->language->get('entry_address');
+		$data['entry_address_number'] = $this->language->get('entry_address_number');
+		$data['entry_address_complement'] = $this->language->get('entry_address_complement');
+		$data['entry_neighborhood'] = $this->language->get('entry_neighborhood');
 		$data['entry_postcode'] = $this->language->get('entry_postcode');
 		$data['entry_city'] = $this->language->get('entry_city');
 		$data['entry_country'] = $this->language->get('entry_country');
@@ -31,6 +34,7 @@ class ControllerCheckoutRegister extends Controller {
 
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_upload'] = $this->language->get('button_upload');
+		$data['search_postcode'] = $this->language->get('search_postcode');
 
 		$data['customer_groups'] = array();
 
@@ -155,8 +159,16 @@ class ControllerCheckoutRegister extends Controller {
 				$json['error']['telephone'] = $this->language->get('error_telephone');
 			}
 
-			if ((utf8_strlen(trim($this->request->post['address_1'])) < 3) || (utf8_strlen(trim($this->request->post['address_1'])) > 128)) {
-				$json['error']['address_1'] = $this->language->get('error_address_1');
+			if ((utf8_strlen(trim($this->request->post['address'])) < 3) || (utf8_strlen(trim($this->request->post['address'])) > 128)) {
+				$json['error']['address'] = $this->language->get('error_address');
+			}
+			
+			if (utf8_strlen(trim($this->request->post['address_number'])) < 1) {
+				$json['error']['address_number'] = $this->language->get('error_address_number');
+			}
+				
+			if (utf8_strlen(trim($this->request->post['neighborhood'])) < 1) {
+				$json['error']['neighborhood'] = $this->language->get('error_neighborhood');
 			}
 
 			if ((utf8_strlen(trim($this->request->post['city'])) < 2) || (utf8_strlen(trim($this->request->post['city'])) > 128)) {
@@ -167,7 +179,7 @@ class ControllerCheckoutRegister extends Controller {
 
 			$country_info = $this->model_localisation_country->getCountry($this->request->post['country_id']);
 
-			if ($country_info && $country_info['postcode_required'] && (utf8_strlen(trim($this->request->post['postcode'])) < 2 || utf8_strlen(trim($this->request->post['postcode'])) > 10)) {
+			if ((utf8_strlen(trim($this->request->post['postcode'])) < 2 || utf8_strlen(trim($this->request->post['postcode'])) > 10)) {
 				$json['error']['postcode'] = $this->language->get('error_postcode');
 			}
 
@@ -228,21 +240,15 @@ class ControllerCheckoutRegister extends Controller {
 
 			$customer_group_info = $this->model_account_customer_group->getCustomerGroup($customer_group_id);
 
-			if ($customer_group_info && !$customer_group_info['approval']) {
-				$this->customer->login($this->request->post['email'], $this->request->post['password']);
+			// Default Payment Address
+			$this->load->model('account/address');
+				
+			$this->customer->login($this->request->post['email'], $this->request->post['password']);
 
-				// Default Payment Address
-				$this->load->model('account/address');
-
-				$this->session->data['payment_address'] = $this->model_account_address->getAddress($this->customer->getAddressId());
-
-				if (!empty($this->request->post['shipping_address'])) {
-					$this->session->data['shipping_address'] = $this->model_account_address->getAddress($this->customer->getAddressId());
-				}
-			} else {
-				$json['redirect'] = $this->url->link('account/success');
-			}
-
+			$this->session->data['payment_address'] = $this->model_account_address->getAddress($this->customer->getAddressId());
+			$this->session->data['shipping_address'] = $this->model_account_address->getAddress($this->customer->getAddressId());
+			$json['redirect'] = $this->url->link('checkout/checkout', '', 'SSL');
+			
 			unset($this->session->data['guest']);
 			unset($this->session->data['shipping_method']);
 			unset($this->session->data['shipping_methods']);

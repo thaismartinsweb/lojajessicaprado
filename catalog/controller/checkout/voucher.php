@@ -1,7 +1,7 @@
 <?php
 class ControllerCheckoutVoucher extends Controller {
 	public function index() {
-		if ($this->config->get('voucher_status')) {
+		if ($this->config->get('voucher_status') == 'nao_exibir') {
 			$this->load->language('checkout/voucher');
 
 			$data['heading_title'] = $this->language->get('heading_title');
