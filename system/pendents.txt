@@ -1,0 +1,6 @@
+CHECKOUT
+- Tabs Disable
+- PagSeguro - LightBox
+
+CART
+- Add Celular

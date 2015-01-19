@@ -1,15 +1,18 @@
 <div id="shipping">
-	<form class="form-horizontal">			
-		<div class="form-group required">
-			<label class="col-sm-offset-7 col-sm-2 control-label" for="input-postcode"><?php echo $entry_postcode; ?></label>
-			<div class="col-sm-2">
-				<input type="text" name="postcode" value="<?php echo $postcode; ?>" placeholder="<?php echo $entry_postcode; ?>" id="input-postcode" class="form-control" />
-			</div>
-			<div class="col-sm-1">
-				<input type="button" value="<?php echo $button_quote; ?>" id="button-quote" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-pink" />
-			</div>
-		</div>
-	</form>
+	<div class="col-sm-12">
+	   <div class="col-sm-offset-8 col-sm-1 form-group required text-right">
+			<label class="control-label" for="input-postcode"><?php echo $entry_postcode; ?></label>
+	   </div>
+	   <div class="col-sm-3 form-group">
+       <div class="input-group btn-block">
+        	<input type="text" name="postcode" value="<?php echo $postcode; ?>" placeholder="<?php echo $entry_postcode; ?>" id="input-postcode" class="form-control" />
+       		<span class="input-group-btn">
+	        	<input type="button" style="font-size:13px;" value="<?php echo $button_quote; ?>" id="button-quote" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-pink-sm" />
+	        </span>
+        </div>
+        <p class="text-right" style="clear:both;font-size:12px;line-height:15px;margin-top:10px;">Não sabe seu CEP? <a href="http://www.buscacep.correios.com.br/servicos/dnec/index.do" target="_blank">Clique aqui</a></p>
+      </div>
+	</div>
 </div>
 <script type="text/javascript"><!--
 $('#input-postcode').mask('99999-999');

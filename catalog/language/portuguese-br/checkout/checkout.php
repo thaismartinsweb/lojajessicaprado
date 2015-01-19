@@ -73,10 +73,10 @@ $_['entry_shipping'] 	             = 'O endereço para entrega é o mesmo que es
 
 // Error
 $_['error_warning']                  = 'Houve um problema ao processar o seu pagamento, por isso, seu pedido não foi concluído. Você pode tentar novamente utilizando outra forma de pagamento ou entre em <a href="%s">contato</a> e informe os detalhes do pedido.';
-$_['error_login']                    = 'Atenção: Seus dados de acesso não estão corretos. Se você tem certeza que o e-mail está correto, solicite uma nova senha.';
-$_['error_attempts']                 = 'Atenção: Você excedeu o limite de tentativas de acesso. Por segurança, tente acessar novamente após 1 hora.';
-$_['error_approved']                 = 'Atenção: Sua conta ainda não foi aprovada. Quando sua conta for aprovada, você receberá um e-mail de confirmação.';
-$_['error_exists']                   = 'Atenção: Este e-mail já está cadastrado!';
+$_['error_login']                    = 'ATENÇÃO:<br />Seus dados de acesso não estão corretos.<br />Por favor, verifique se digitou corretamente.';
+$_['error_attempts']                 = 'ATENÇÃO:<br />Você excedeu o limite de tentativas de acesso.<br />Por segurança, tente acessar novamente após 1 hora.';
+$_['error_approved']                 = 'ATENÇÃO:<br />Sua conta ainda não foi aprovada.<br />Quando sua conta for aprovada, você receberá um e-mail de confirmação.';
+$_['error_exists']                   = 'ATENÇÃO:<br />Este e-mail já está cadastrado!';
 $_['error_firstname']                = 'O nome deve ter entre 2 e 32 caracteres!';
 $_['error_lastname']                 = 'O sobrenome deve ter entre 2 e 32 caracteres!';
 $_['error_email']                    = 'O e-mail não é válido!';

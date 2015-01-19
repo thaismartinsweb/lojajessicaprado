@@ -80,38 +80,20 @@
 	                <td class="text-right"><?php echo $product['total']; ?></td>
 	              </tr>
 	              <?php } ?>
-	              <?php foreach ($vouchers as $vouchers) { ?>
-	              <tr>
-	                <td></td>
-	                <td class="text-left"><?php echo $vouchers['description']; ?></td>
-	                <td class="text-left"></td>
-	                <td class="text-left"><div class="input-group btn-block" style="max-width: 200px;">
-	                    <input type="text" name="" value="1" size="1" disabled="disabled" class="form-control" />
-	                    <span class="input-group-btn"><button type="button" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger" onclick="voucher.remove('<?php echo $vouchers['key']; ?>');"><i class="fa fa-times-circle"></i></button></span></div></td>
-	                <td class="text-right"><?php echo $vouchers['amount']; ?></td>
-	                <td class="text-right"><?php echo $vouchers['amount']; ?></td>
-	              </tr>
-	              <?php } ?>
-	            </tbody>
+	              </tbody>
+	              <tfoot>
+					<?php if ($shipping) { ?>
+						<tr><td style="padding-top:50px;" colspan="5"><?php echo $shipping; ?></td></tr>
+					<?php } ?>
+		            <?php foreach ($totals as $total) { ?>
+			            <tr>
+			              <td colspan="4" class="text-right"><strong><?php echo $total['title']; ?>:</strong></td>
+			              <td class="text-right"><?php echo $total['text']; ?></td>
+			            </tr>
+		            <?php } ?>
+		         </tfoot>
 	          </table>
-	        </div>
-	      </form>
-	      <?php if ($coupon || $voucher || $reward || $shipping) { ?>
-	      <div class="panel-group" id="accordion"><?php echo $coupon; ?><?php echo $voucher; ?><?php echo $reward; ?><?php echo $shipping; ?></div>
-	      <?php } ?>
-	      <br />
-	      <div class="row">
-	        <div class="col-sm-4 col-sm-offset-8">
-	          <table class="table table-bordered">
-	            <?php foreach ($totals as $total) { ?>
-		            <tr>
-		              <td class="text-right"><strong><?php echo $total['title']; ?>:</strong></td>
-		              <td class="text-right"><?php echo $total['text']; ?></td>
-		            </tr>
-	            <?php } ?>
-	          </table>
-	        </div>
-	      </div>
+          </form>
 	      <div class="buttons">
 	        <div class="pull-left"><a href="<?php echo $continue; ?>" class="btn btn-pink"><?php echo $button_shopping; ?></a></div>
 	        <div class="pull-right"><a href="<?php echo $checkout; ?>" class="btn btn-pink"><?php echo $button_checkout; ?></a></div>

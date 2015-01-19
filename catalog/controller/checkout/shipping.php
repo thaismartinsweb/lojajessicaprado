@@ -109,10 +109,10 @@ class ControllerCheckoutShipping extends Controller {
 		
 		// CEP's
 		$cep['origem'] = '03952020';
-		$cep['destino'] = '01311300';
+		$cep['destino'] = $this->request->post['postcode'];
 		
 		// Infos do Produto
-		$produto['peso'] = '2';
+		$produto['peso'] = '2.5';
 		$produto['valor'] = '4.00';
 		$produto['altura'] = '20';
 		$produto['largura'] = '20';
@@ -151,10 +151,11 @@ class ControllerCheckoutShipping extends Controller {
 				'error'      => $error
 		);
 		
+		
 		$this->session->data['shipping_methods'] = $quote_data;
 		$this->session->data['shipping_method'] = $this->session->data['shipping_methods']["interno"]['quote']["interno"];
 		$this->session->data['success'] = $this->language->get('text_success');
-		
+
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
