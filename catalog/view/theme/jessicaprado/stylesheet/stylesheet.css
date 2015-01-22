@@ -894,3 +894,15 @@ h2.price {
        width: 100%;
     }
 }
+
+#paymentModal .modal-dialog, #paymentModal .modal, #paymentModal .modal-content
+{ 
+     height: 95%; 
+     width: 99%;
+}
+
+#paymentModal iframe {
+	border: none;
+	height: 100%; 
+    width: 100%;
+}

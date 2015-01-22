@@ -65,6 +65,7 @@
     
 	<?php echo $content_bottom; ?>
 	<?php echo $column_right; ?>
+   </div>
   </div>
 </div>
 <script type="text/javascript"><!--
@@ -335,10 +336,7 @@ $(document).delegate('#button-payment-method', 'click', function() {
         dataType: 'json',
         beforeSend: function() {
          	$('#button-payment-method').button('loading');
-		},  
-        complete: function() {
-            $('#button-payment-method').button('reset');
-        },          
+		},      
         success: function(json) {
             $('.alert, .text-danger').remove();
             
@@ -347,7 +345,8 @@ $(document).delegate('#button-payment-method', 'click', function() {
             } else if (json['error']) {
                 if (json['error']['warning']) {
                     $('#payment .panel-body').prepend('<div class="alert alert-warning">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-                }           
+                }
+                $('#button-payment-method').button('reset');
             } else {
                 $.ajax({
                     url: 'index.php?route=checkout/confirm',
@@ -360,14 +359,14 @@ $(document).delegate('#button-payment-method', 'click', function() {
                         $('#confirm').addClass('active').addClass('in');
                         
                         $('#confirm .panel-body').html(html);
-  						
+  						$('#button-payment-method').button('reset');
 						$('#confirm').parent().find('.panel-heading .panel-title').html('<a href="#collapse-checkout-confirm" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle"><?php echo $text_checkout_confirm; ?> <i class="fa fa-caret-down"></i></a>');
 					},
                     error: function(xhr, ajaxOptions, thrownError) {
                         alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
                     }
                 }); 
-            }
+            }     
         },
         error: function(xhr, ajaxOptions, thrownError) {
             alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);

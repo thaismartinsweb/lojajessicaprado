@@ -127,8 +127,10 @@ class ControllerCheckoutConfirm extends Controller {
 			$order_data['payment_firstname'] = $this->session->data['payment_address']['firstname'];
 			$order_data['payment_lastname'] = $this->session->data['payment_address']['lastname'];
 			$order_data['payment_company'] = $this->session->data['payment_address']['company'];
-			$order_data['payment_address_1'] = $this->session->data['payment_address']['address_1'];
-			$order_data['payment_address_2'] = $this->session->data['payment_address']['address_2'];
+			$order_data['payment_address'] = $this->session->data['payment_address']['address'];
+			$order_data['payment_number'] = $this->session->data['payment_address']['number'];
+            $order_data['payment_complement'] = $this->session->data['payment_address']['complement'];
+            $order_data['payment_neighborhood'] = $this->session->data['payment_address']['neighborhood'];
 			$order_data['payment_city'] = $this->session->data['payment_address']['city'];
 			$order_data['payment_postcode'] = $this->session->data['payment_address']['postcode'];
 			$order_data['payment_zone'] = $this->session->data['payment_address']['zone'];

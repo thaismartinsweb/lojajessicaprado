@@ -20,8 +20,8 @@ class ControllerCheckoutRegister extends Controller {
 		$data['entry_fax'] = $this->language->get('entry_fax');
 		$data['entry_company'] = $this->language->get('entry_company');
 		$data['entry_address'] = $this->language->get('entry_address');
-		$data['entry_address_number'] = $this->language->get('entry_address_number');
-		$data['entry_address_complement'] = $this->language->get('entry_address_complement');
+		$data['entry_number'] = $this->language->get('entry_number');
+		$data['entry_complement'] = $this->language->get('entry_complement');
 		$data['entry_neighborhood'] = $this->language->get('entry_neighborhood');
 		$data['entry_postcode'] = $this->language->get('entry_postcode');
 		$data['entry_city'] = $this->language->get('entry_city');
@@ -163,8 +163,8 @@ class ControllerCheckoutRegister extends Controller {
 				$json['error']['address'] = $this->language->get('error_address');
 			}
 			
-			if (utf8_strlen(trim($this->request->post['address_number'])) < 1) {
-				$json['error']['address_number'] = $this->language->get('error_address_number');
+			if (utf8_strlen(trim($this->request->post['number'])) < 1) {
+				$json['error']['number'] = $this->language->get('error_number');
 			}
 				
 			if (utf8_strlen(trim($this->request->post['neighborhood'])) < 1) {

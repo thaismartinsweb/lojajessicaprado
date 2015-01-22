@@ -61,13 +61,13 @@
     </div>
     
     <div class="form-group required col-sm-2">
-      <label class="control-label" for="input-payment-number"><?php echo $entry_address_number; ?></label>
-      <input type="text" name="number" value="" placeholder="<?php echo $entry_address_number; ?>" id="input-payment-number" class="form-control" />
+      <label class="control-label" for="input-payment-number"><?php echo $entry_number; ?></label>
+      <input type="text" name="number" value="" placeholder="<?php echo $entry_number; ?>" id="input-payment-number" class="form-control" />
     </div>
     
     <div class="form-group col-sm-4">
-      <label class="control-label" for="input-payment-complement"><?php echo $entry_address_complement; ?></label>
-      <input type="text" name="complement" value="" placeholder="<?php echo $entry_address_complement; ?>" id="input-payment-complement" class="form-control" />
+      <label class="control-label" for="input-payment-complement"><?php echo $entry_complement; ?></label>
+      <input type="text" name="complement" value="" placeholder="<?php echo $entry_complement; ?>" id="input-payment-complement" class="form-control" />
     </div>
     
     <div class="form-group required col-sm-6">
