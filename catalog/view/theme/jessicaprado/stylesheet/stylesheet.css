@@ -258,7 +258,7 @@ div.required .control-label:before {
 	color:#fff;
 	background-color:#93d3d5;
 	text-align:center;
-	padding: 10px 10%;
+	padding: 10px 5%;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -895,10 +895,14 @@ h2.price {
     }
 }
 
+#paymentModal .modal-xl
+{ 
+     width: 80%;
+}
+
 #paymentModal .modal-dialog, #paymentModal .modal, #paymentModal .modal-content
 { 
      height: 95%; 
-     width: 99%;
 }
 
 #paymentModal iframe {

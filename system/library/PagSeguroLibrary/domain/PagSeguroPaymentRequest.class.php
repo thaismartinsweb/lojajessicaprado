@@ -649,7 +649,7 @@ class PagSeguroPaymentRequest
     public function verifyURLTest($url)
     {
         $adress = array(
-            'localhost',
+//             'localhost',
             '127.0.0.1',
             '::1'
         );

@@ -1,16 +1,16 @@
 <div class="buttons">
   <div class="pull-right">
-    <input type="button" value="<?php echo $button_confirm; ?>" data-toggle="modal"  data-target="#paymentModal" id="button-confirm" class="btn btn-pink" />
+    <input type="button" value="<?php echo $button_confirm; ?>" data-toggle="modal" data-target="#paymentModal" data-loading-text="<?php echo $text_loading; ?>" id="button-confirm" class="btn btn-pink" />
   </div>
 </div>
 
 <!-- Modal -->
 <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModal" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-body">
              <div id="modalLoading" style="width:32px; margin: 100px auto; position: absolute;left: 0; right: 0;">
-                 <img src="catalog/view/theme/jessicaprado/image/loading.gif" alt="Carregando..." title='Carregando...' />
+                 <img src="catalog/view/theme/<?php echo $theme ?>/image/loading.gif" alt="Carregando..." title='Carregando...' />
              </div>
             <iframe src="<?php echo $url; ?>" onload='document.getElementById("modalLoading").remove();' width="100%" height="100%" />
       </div>

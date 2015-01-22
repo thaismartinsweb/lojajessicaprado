@@ -35,7 +35,7 @@ class ControllerCheckoutPaymentAddress extends Controller {
 		$this->load->model('account/address');
 
 		$data['addresses'] = $this->model_account_address->getAddresses();
-
+		
 		if (isset($this->session->data['payment_address']['country_id'])) {
 			$data['country_id'] = $this->session->data['payment_address']['country_id'];
 		} else {

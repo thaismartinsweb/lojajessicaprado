@@ -23,6 +23,7 @@ class ControllerCheckoutCart extends Controller {
 			$data['text_recurring_item'] = $this->language->get('text_recurring_item');
 			$data['text_next'] = $this->language->get('text_next');
 			$data['text_next_choice'] = $this->language->get('text_next_choice');
+			$data['text_select_shipping'] = $this->language->get('text_select_shipping');
 
 			$data['column_image'] = $this->language->get('column_image');
 			$data['column_name'] = $this->language->get('column_name');
@@ -35,6 +36,7 @@ class ControllerCheckoutCart extends Controller {
 			$data['button_remove'] = $this->language->get('button_remove');
 			$data['button_shopping'] = $this->language->get('button_shopping');
 			$data['button_checkout'] = $this->language->get('button_checkout');
+			$data['button_select_shipping'] = $this->language->get('button_select_shipping');
 
 			if (!$this->cart->hasStock() && (!$this->config->get('config_stock_checkout') || $this->config->get('config_stock_warning'))) {
 				$data['error_warning'] = $this->language->get('error_stock');
@@ -247,6 +249,7 @@ class ControllerCheckoutCart extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
+			$data['hasShippingMethod'] = isset($this->session->data['shipping_method']);
 
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/cart.tpl')) {
 				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/checkout/cart.tpl', $data));

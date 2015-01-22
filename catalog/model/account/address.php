@@ -3,7 +3,7 @@ class ModelAccountAddress extends Model {
 	public function addAddress($data) {
 		$this->event->trigger('pre.customer.add.address', $data);
 
-		$this->db->query("INSERT INTO " . DB_PREFIX . "address SET customer_id = '" . (int)$this->customer->getId() . "', firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', company = '" . $this->db->escape($data['company']) . "', address = '" . $this->db->escape($data['address']) . "', number = '" . $this->db->escape($data['number']) . "', neighborhood = '" . $this->db->escape($data['neighborhood']) . "', postcode = '" . $this->db->escape($data['postcode']) . "', city = '" . $this->db->escape($data['city']) . "', zone_id = '" . (int)$data['zone_id'] . "', country_id = '" . (int)$data['country_id'] . "', custom_field = '" . $this->db->escape(isset($data['custom_field']) ? serialize($data['custom_field']) : '') . "'");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "address SET customer_id = '" . (int)$this->customer->getId() . "', firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', company = '" . $this->db->escape($data['company']) . "', address = '" . $this->db->escape($data['address']) . "', number = '" . $this->db->escape($data['number']) . "', complement = '" . $this->db->escape($data['complement']) . "', neighborhood = '" . $this->db->escape($data['neighborhood']) . "', postcode = '" . $this->db->escape($data['postcode']) . "', city = '" . $this->db->escape($data['city']) . "', zone_id = '" . (int)$data['zone_id'] . "', country_id = '" . (int)$data['country_id'] . "', custom_field = '" . $this->db->escape(isset($data['custom_field']) ? serialize($data['custom_field']) : '') . "'");
 
 		$address_id = $this->db->getLastId();
 
@@ -19,7 +19,7 @@ class ModelAccountAddress extends Model {
 	public function editAddress($address_id, $data) {
 		$this->event->trigger('pre.customer.edit.address', $data);
 
-		$this->db->query("UPDATE " . DB_PREFIX . "address SET firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', company = '" . $this->db->escape($data['company']) . "', address = '" . $this->db->escape($data['address']) . "', number = '" . $this->db->escape($data['number']) . "', neighborhood = '" . $this->db->escape($data['neighborhood']) . "', postcode = '" . $this->db->escape($data['postcode']) . "', city = '" . $this->db->escape($data['city']) . "', zone_id = '" . (int)$data['zone_id'] . "', country_id = '" . (int)$data['country_id'] . "', custom_field = '" . $this->db->escape(isset($data['custom_field']) ? serialize($data['custom_field']) : '') . "' WHERE address_id  = '" . (int)$address_id . "' AND customer_id = '" . (int)$this->customer->getId() . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "address SET firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', company = '" . $this->db->escape($data['company']) . "', address = '" . $this->db->escape($data['address']) . "', number = '" . $this->db->escape($data['number']) . "', complement = '" . $this->db->escape($data['complement']) . "', neighborhood = '" . $this->db->escape($data['neighborhood']) . "', postcode = '" . $this->db->escape($data['postcode']) . "', city = '" . $this->db->escape($data['city']) . "', zone_id = '" . (int)$data['zone_id'] . "', country_id = '" . (int)$data['country_id'] . "', custom_field = '" . $this->db->escape(isset($data['custom_field']) ? serialize($data['custom_field']) : '') . "' WHERE address_id  = '" . (int)$address_id . "' AND customer_id = '" . (int)$this->customer->getId() . "'");
 
 		if (!empty($data['default'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "customer SET address_id = '" . (int)$address_id . "' WHERE customer_id = '" . (int)$this->customer->getId() . "'");
@@ -71,7 +71,7 @@ class ModelAccountAddress extends Model {
 				'company'        => $address_query->row['company'],
 				'address'        => $address_query->row['address'],
 				'number'         => $address_query->row['number'],
-				'complement'         => $address_query->row['complement'],
+				'complement'     => $address_query->row['complement'],
 				'neighborhood'   => $address_query->row['neighborhood'],
 				'postcode'       => $address_query->row['postcode'],
 				'city'           => $address_query->row['city'],
@@ -129,6 +129,7 @@ class ModelAccountAddress extends Model {
 				'company'        => $result['company'],
 				'address'        => $result['address'],
 				'number'         => $result['number'],
+				'complement'     => $result['complement'],
 				'neighborhood'   => $result['neighborhood'],
 				'postcode'       => $result['postcode'],
 				'city'           => $result['city'],

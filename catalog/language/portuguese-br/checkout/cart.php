@@ -10,6 +10,7 @@ $_['text_items']               = '%s';
 $_['text_points']              = 'Pontos: %s';
 $_['text_next']                = 'O que você gostaria de fazer?';
 $_['text_next_choice']         = 'Se você deseja utilizar um cupom, vale presentes, pontos ou calcular o frete, utilize uma das opções abaixo:';
+$_['text_select_shipping']     = 'Calcule o frete antes de finalizar a compra.';
 $_['text_empty']               = 'Seu carrinho de compras está vazio!';
 $_['text_day']                 = 'Diária';
 $_['text_week']                = 'Semanal';

@@ -124,7 +124,7 @@ class ControllerPaymentPagseguro extends Controller {
 	    	}
 				
 			if(!empty($options_names)){
-				$options = " | Opções:: " . implode(', ', $options_names);
+				$options = " | Opções: " . implode(', ', $options_names);
 			}
 			else{
 				$options = '';
@@ -184,6 +184,8 @@ class ControllerPaymentPagseguro extends Controller {
 			$paymentRequest->setExtraAmount($total);
 		}  
 	    
+		$data['theme'] = $this->config->get('config_template');
+		$data['text_loading'] = $this->language->get('text_loading');
 	   	/* 
 	   	 * Fazendo a chamada para a API de Pagamentos do PagSeguro. 
 	   	 * Se tiver sucesso, retorna o código (url) de requisição para este pagamento.
@@ -196,7 +198,7 @@ class ControllerPaymentPagseguro extends Controller {
 
 		} catch (PagSeguroServiceException $e) {
 			$this->log->write('PagSeguro :: ' . $e->getOneLineMessage());
-		}		
+		}
 		
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/pagseguro.tpl')) {
 			return $this->load->view($this->config->get('config_template') . '/template/payment/pagseguro.tpl', $data);
@@ -214,7 +216,7 @@ class ControllerPaymentPagseguro extends Controller {
 	}
 			
 	public function callback() {
-		
+
 		require_once(DIR_SYSTEM . 'library/PagSeguroLibrary/PagSeguroLibrary.php');
 		
 		$code = (isset($_POST['notificationCode']) && trim($_POST['notificationCode']) != "") ? trim($_POST['notificationCode']) : null;
@@ -230,7 +232,7 @@ class ControllerPaymentPagseguro extends Controller {
 				case 'TRANSACTION':
 					
     				$credentials = new PagSeguroAccountCredentials($this->config->get('pagseguro_email'), $this->config->get('pagseguro_token'));
-										
+									
     		    	try {
 			    		$transaction = PagSeguroNotificationService::checkTransaction($credentials, $code);
 			    		

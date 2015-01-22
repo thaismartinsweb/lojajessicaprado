@@ -7,12 +7,18 @@
   </div>
   <div id="payment-existing">
     <select name="address_id" class="form-control">
+      <?php $i = 1; ?>
       <?php foreach ($addresses as $address) { ?>
 	      <?php if ($address['address_id'] == $address_id) { ?>
-	      	<option value="<?php echo $address['address_id']; ?>" selected="selected"><?php echo $address['firstname']; ?> <?php echo $address['lastname']; ?> - <?php echo $address['address']; ?>, <?php echo $address['number']; ?> - <?php echo $address['neighborhood']; ?> - <?php echo $address['city']; ?>/<?php echo $address['zone']; ?></option>
+	      	<option value="<?php echo $address['address_id']; ?>" selected="selected">
+	      		<?php echo $i ?>) <?php echo $address['firstname']; ?> <?php echo $address['lastname']; ?> - <?php echo $address['address']; ?>, <?php echo $address['number']; ?><?php echo ($address['complement']) ? ' - '.$address['complement'] : '' ; ?> - <?php echo $address['neighborhood']; ?> - <?php echo $address['city']; ?>/<?php echo $address['zone']; ?>
+	      	</option>
 	      <?php } else { ?>
-	      	<option value="<?php echo $address['address_id']; ?>"><?php echo $address['firstname']; ?> <?php echo $address['lastname']; ?> - <?php echo $address['address']; ?>, <?php echo $address['number']; ?> - <?php echo $address['neighborhood']; ?> - <?php echo $address['city']; ?>/<?php echo $address['zone']; ?></option>
+	      	<option value="<?php echo $address['address_id']; ?>">
+	      		<?php echo $i ?>) <?php echo $address['firstname']; ?> <?php echo $address['lastname']; ?> - <?php echo $address['address']; ?>, <?php echo $address['number']; ?><?php echo ($address['complement']) ? ' - '.$address['complement'] : '' ; ?> - <?php echo $address['neighborhood']; ?> - <?php echo $address['city']; ?>/<?php echo $address['zone']; ?>
+	      	</option>
 	      <?php } ?>
+	      <?php $i++; ?>
       <?php } ?>
     </select>
   </div>

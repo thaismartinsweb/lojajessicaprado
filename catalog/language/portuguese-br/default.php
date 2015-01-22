@@ -29,6 +29,7 @@ $_['button_cancel']         = 'Cancelar';
 $_['button_compare']        = 'Comparar este produto';
 $_['button_wishlist']       = 'Adicionar à lista de desejos';
 $_['button_checkout']       = 'Finalizar pedido';
+$_['button_select_shipping']= 'Selecione o Frete';
 $_['button_confirm']        = 'Confirmar pedido';
 $_['button_coupon']         = 'Utilizar cupom';
 $_['button_delete']         = 'Excluir';

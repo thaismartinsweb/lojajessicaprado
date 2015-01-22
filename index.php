@@ -1,4 +1,9 @@
 <?php
+
+header("access-control-allow-origin: https://sandbox.pagseguro.uol.com.br");
+// header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Credentials: true');
+
 // Version
 define('VERSION', '2.0.1.1');
 
