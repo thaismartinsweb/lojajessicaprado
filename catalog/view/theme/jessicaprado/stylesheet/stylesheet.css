@@ -16,34 +16,34 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* Override the bootstrap defaults */
 h1 {
-	font-size: 38px;
+	font-size: 28px;
 }
 h2 {
-	font-size: 32px;
-}
-h3 {
-	font-size: 26px;
+	font-size: 24px;
 	margin-bottom:30px;
 	border-bottom: 1px solid #f1f1f1;
 }
-h3 p {
+h2 p {
 	position:absolute;
 	margin-top:-10px;
 	text-align:center;
 	width:100%;
 }
-h3 p span {
+h2 p span {
 	padding:10px 20px;
 	background-color:#fff;
 }
-h4 {
+h3 {
 	font-size: 20px;
 }
+h4 {
+	font-size: 16px;
+}
 h5 {
-	font-size: 14px;
+	font-size: 10px;
 }
 h6 {
-	font-size: 10.2px;
+	font-size: 8px;
 }
 a {
 	color: #23a1d1;
@@ -169,7 +169,8 @@ div.required .control-label:before {
 	font-family:'Satisfy', sans-serif;
 }
 #search .input-group-btn .btn-pink:hover {
-	back-ground-color: #c23b58;
+	background-color: #c23b58;
+	color: #fff!important;
 }
 /* cart */
 #cart {
@@ -274,6 +275,11 @@ div.required .control-label:before {
 	border:none;
 	color:#fff;
 	font-family:'Satisfy', sans-serif;
+}
+
+#shipping .btn-pink:hover {
+	background-color: #c23b58;
+	color:#fff!important;
 }
 
 /* menu */
@@ -413,11 +419,21 @@ div.required .control-label:before {
 	font-family:'Satisfy', sans-serif;
 }
 
+#body-content .btn-pink:hover {
+	background-color: #c23b58;
+	color:#fff!important;
+}
+
 #body-content .btn-pink-sm {
 	background-color:#d94363;
 	border:none;
 	color:#fff;
 	font-family:'Satisfy', sans-serif;
+}
+
+#body-content .btn-pink-sm:hover {
+	background-color: #c23b58;
+	color:#fff!important;
 }
 
 #body-content a {
@@ -655,7 +671,7 @@ footer .powered a:hover {
 	border-radius: 5px;
 }
 .list-group a.list-group-item:hover {
-	color: #fff;
+	color: #fff!important;
 	background-color:#93d3d5;
 	border:none;
 	text-shadow:none;

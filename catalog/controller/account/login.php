@@ -42,12 +42,12 @@ class ControllerAccountLogin extends Controller {
 
 				$this->event->trigger('post.customer.login');
 
-				$this->response->redirect($this->url->link('account/account', '', 'SSL'));
+				$this->response->redirect($this->url->link('account/edit', '', 'SSL'));
 			}
 		}
 
 		if ($this->customer->isLogged()) {
-			$this->response->redirect($this->url->link('account/account', '', 'SSL'));
+			$this->response->redirect($this->url->link('account/edit', '', 'SSL'));
 		}
 
 		$this->load->language('account/login');
@@ -82,7 +82,7 @@ class ControllerAccountLogin extends Controller {
 			if (isset($this->request->post['redirect']) && (strpos($this->request->post['redirect'], $this->config->get('config_url')) !== false || strpos($this->request->post['redirect'], $this->config->get('config_ssl')) !== false)) {
 				$this->response->redirect(str_replace('&amp;', '&', $this->request->post['redirect']));
 			} else {
-				$this->response->redirect($this->url->link('account/account', '', 'SSL'));
+				$this->response->redirect($this->url->link('account/edit', '', 'SSL'));
 			}
 		}
 

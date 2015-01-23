@@ -10,7 +10,7 @@ $_['text_new_affiliate']            = 'Ainda não é afiliado?';
 $_['text_register_account']         = '<p>Cadastre-se agora, pois é simples e rápido.</p><p>Ao cadastrar sua conta, você terá acesso ao seu código de afiliação, e poderá gerar links para divulgação de nossos produtos. Se você já tem uma conta de cliente em nossa loja, note que sua conta de cliente não será ligada a sua conta de afiliado.</p>';
 $_['text_returning_affiliate']      = 'Já é afiliado?';
 $_['text_i_am_returning_affiliate'] = 'Se você já faz parte do programa de afiliados, coloque os seus dados de acesso abaixo:';
-$_['text_forgotten']                = 'Solicitar nova senha';
+$_['text_forgotten']                = 'Esqueci minha senha';
 
 // Entry
 $_['entry_email']                   = 'E-mail';

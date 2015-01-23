@@ -18,11 +18,13 @@ class ControllerAccountEdit extends Controller {
 		$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
 
 		$this->load->model('account/customer');
-
+		
+		$data['success'] = '';
+		
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			$this->model_account_customer->editCustomer($this->request->post);
 
-			$this->session->data['success'] = $this->language->get('text_success');
+			$data['success'] = $this->language->get('text_success');
 
 			// Add to activity log
 			$this->load->model('account/activity');
@@ -32,10 +34,7 @@ class ControllerAccountEdit extends Controller {
 				'name'        => $this->customer->getFirstName() . ' ' . $this->customer->getLastName()
 			);
 
-			$this->model_account_activity->addActivity('edit', $activity_data);
-
-			$this->response->redirect($this->url->link('account/account', '', 'SSL'));
-		}
+			$this->model_account_activity->addActivity('edit', $activity_data);		}
 
 		$data['breadcrumbs'] = array();
 

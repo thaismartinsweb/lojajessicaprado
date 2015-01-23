@@ -1,6 +1,4 @@
-<h3>
-	<p><span><?php echo $heading_title; ?></span></p>
-</h3>
+<h2><p><span><?php echo $heading_title; ?></span></p></h2>
 <div class="row">
 <?php foreach ($products as $product) { ?>
 	  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">

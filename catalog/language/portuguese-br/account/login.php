@@ -10,7 +10,7 @@ $_['text_register']                = 'Cadastre sua conta.';
 $_['text_register_account']        = 'Cadastre-se, facilite suas compras futuras e tenha acesso a promoções e ofertas exclusivas.';
 $_['text_returning_customer']      = 'Já é cliente?';
 $_['text_i_am_returning_customer'] = 'Se você já fez um pedido e cadastrou uma conta, coloque os dados da conta abaixo:';
-$_['text_forgotten']               = 'Solicitar nova senha';
+$_['text_forgotten']               = 'Esqueci minha senha';
 
 // Entry
 $_['entry_email']                  = 'E-mail';

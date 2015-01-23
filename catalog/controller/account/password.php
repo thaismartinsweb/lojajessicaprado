@@ -30,7 +30,7 @@ class ControllerAccountPassword extends Controller {
 
 			$this->model_account_activity->addActivity('password', $activity_data);
 
-			$this->response->redirect($this->url->link('account/account', '', 'SSL'));
+			$this->response->redirect($this->url->link('account/edit', '', 'SSL'));
 		}
 
 		$data['breadcrumbs'] = array();
@@ -42,7 +42,7 @@ class ControllerAccountPassword extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', 'SSL')
+			'href' => $this->url->link('account/edit', '', 'SSL')
 		);
 
 		$data['breadcrumbs'][] = array(
@@ -86,7 +86,7 @@ class ControllerAccountPassword extends Controller {
 			$data['confirm'] = '';
 		}
 
-		$data['back'] = $this->url->link('account/account', '', 'SSL');
+		$data['back'] = $this->url->link('account/edit', '', 'SSL');
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');

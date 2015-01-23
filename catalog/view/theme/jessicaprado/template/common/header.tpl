@@ -46,31 +46,35 @@
 <?php echo $google_analytics; ?>
 </head>
 <body class="<?php echo $class; ?>">
-<nav id="top">
-  <div class="container">
-    <?php echo $currency; ?>
-    <?php echo $language; ?>
-    <div id="top-links" class="nav pull-right hidden-xs">
-      <ul class="list-inline">
-        <li><i class="fa fa-envelope"></i><?php echo $email; ?></li>
-        <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i></a><?php echo $telephone; ?></span></li>
-        <?php if ($logged) { ?>
-             <li class="dropdown"><a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $text_account; ?> <span class="caret"></span></a>
-          		<ul class="dropdown-menu dropdown-menu-right">
-		            <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
-			        <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
-			       	<li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
-			   </ul>
-	       	</li>
-		<?php } else { ?>
-			<li><a href="<?php echo $login; ?>"><i class="fa fa-user"></i><?php echo $text_login; ?></a></li>
-		<?php } ?>
-      </ul>
-    </div>
-  </div>
+<nav id="top" style="background-color:#ddd">
+	<div class="container">
+	    <?php echo $currency; ?>
+	    <?php echo $language; ?>
+	    <div id="top-links" class="nav pull-left hidden-xs">
+	      <ul class="list-inline">
+	        <li><i class="fa fa-envelope"></i><?php echo $email; ?></li>
+	        <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i></a><?php echo $telephone; ?></span></li>
+	      </ul>
+	    </div>
+	    <div id="top-links" class="nav pull-right hidden-xs">
+	      <ul class="list-inline">
+	        <?php if ($logged) { ?>
+	             <li class="dropdown"><a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $text_account; ?> <span class="caret"></span></a>
+	          		<ul class="dropdown-menu dropdown-menu-right">
+			            <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
+				        <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
+				       	<li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
+				   </ul>
+		       	</li>
+			<?php } else { ?>
+				<li><a href="<?php echo $login; ?>"><i class="fa fa-user"></i><?php echo $text_login; ?></a></li>
+			<?php } ?>
+	      </ul>
+	    </div>
+	 </div>
 </nav>
-<header>
-  <div class="container">
+<header  style="background-color:#fff">
+   <div class="container">
     <div class="row">
       <div class="col-sm-2">
         <div id="logo">
@@ -88,50 +92,50 @@
   </div>
 </header>
 <?php if ($categories) { ?>
-<div class="container">
   <nav id="menu" class="navbar">
     <div class="navbar-header"><span id="category" class="visible-xs"><?php echo $text_category; ?></span>
       <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav">
-        <?php foreach ($categories as $category) { ?>
-	        <?php if ($category['children']) { ?>
-		        <li class="dropdown"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a>
-		          <div class="dropdown-menu">
-		            <div class="dropdown-inner">
-		              <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
-		              <ul class="list-unstyled">
-		                <?php foreach ($children as $child) { ?>
-		                <li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
-		                <?php } ?>
-		              </ul>
-		              <?php } ?>
-		            </div>
-		        </li>
-	        <?php } else { ?>
-	        	<li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+    	<div class="container">
+	      <ul class="nav navbar-nav">
+	        <?php foreach ($categories as $category) { ?>
+		        <?php if ($category['children']) { ?>
+			        <li class="dropdown"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a>
+			          <div class="dropdown-menu">
+			            <div class="dropdown-inner">
+			              <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+			              <ul class="list-unstyled">
+			                <?php foreach ($children as $child) { ?>
+			                <li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+			                <?php } ?>
+			              </ul>
+			              <?php } ?>
+			            </div>
+			        </li>
+		        <?php } else { ?>
+		        	<li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+		        <?php } ?>
 	        <?php } ?>
-        <?php } ?>
-      </ul>
+	      </ul>
+	    </div>
     </div>
   </nav>
-</div>
 <?php } ?>
 <?php if ($pages) { ?>
-<div class="container">
   <nav id="menu" class="navbar">
     <div class="navbar-header"><span id="category" class="visible-xs"><?php echo $text_category; ?></span>
       <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav">
-      	 <li><a href="<?php echo $home; ?>">Página Inicial</a></li>
-        <?php foreach ($pages as $page) { ?>
-	        <li><a href="<?php echo $page['href']; ?>"><?php echo $page['title']; ?></a></li>
-        <?php } ?>
-      </ul>
+    	<div class="container">
+	      <ul class="nav navbar-nav">
+	      	 <li><a href="<?php echo $home; ?>">Página Inicial</a></li>
+	        <?php foreach ($pages as $page) { ?>
+		        <li><a href="<?php echo $page['href']; ?>"><?php echo $page['title']; ?></a></li>
+	        <?php } ?>
+	      </ul>
+       </div>
     </div>
   </nav>
-</div>
 <?php } ?>

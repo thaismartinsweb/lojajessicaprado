@@ -1,10 +1,10 @@
 <?php
 // Heading
-$_['heading_title']   = 'Solicitar nova senha';
+$_['heading_title']   = 'Esqueci minha senha';
 
 // Text
 $_['text_account']    = 'Programa de afiliados';
-$_['text_forgotten']  = 'Solicitar nova senha';
+$_['text_forgotten']  = 'Esqueci minha senha';
 $_['text_your_email'] = 'Seu e-mail já cadastrado em nossa loja';
 $_['text_email']      = 'Digite o e-mail associado à sua conta. Depois pressione o botão <b>Continuar</b> para enviarmos um e-mail para você.';
 $_['text_success']    = 'Enviamos para o seu e-mail a nova senha.';

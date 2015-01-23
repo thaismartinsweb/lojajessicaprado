@@ -206,15 +206,17 @@ class ControllerAccountAddress extends Controller {
 			if ($result['address_format']) {
 				$format = $result['address_format'];
 			} else {
-				$format = '{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
+				$format = '{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address} - {number}' . "\n" . '{complement}{neighborhood}' . "\n" . "\n" . '{city}/{zone_code} - {country}';
 			}
 
 			$find = array(
 				'{firstname}',
 				'{lastname}',
 				'{company}',
-				'{address_1}',
-				'{address_2}',
+				'{address}',
+				'{number}',
+				'{complement}',
+				'{neighborhood}',
 				'{city}',
 				'{postcode}',
 				'{zone}',
@@ -223,16 +225,18 @@ class ControllerAccountAddress extends Controller {
 			);
 
 			$replace = array(
-				'firstname' => $result['firstname'],
-				'lastname'  => $result['lastname'],
-				'company'   => $result['company'],
-				'address_1' => $result['address_1'],
-				'address_2' => $result['address_2'],
-				'city'      => $result['city'],
-				'postcode'  => $result['postcode'],
-				'zone'      => $result['zone'],
-				'zone_code' => $result['zone_code'],
-				'country'   => $result['country']
+				'firstname'    => $result['firstname'],
+				'lastname'     => $result['lastname'],
+				'company'      => $result['company'],
+				'address'      => $result['address'],
+				'number'       => $result['number'],
+				'complement'   => $result['complement'] ? ' - ' . $result['complement']: '',
+				'neighborhood' => $result['neighborhood'],
+				'city'         => $result['city'],
+				'postcode'     => $result['postcode'],
+				'zone'         => $result['zone'],
+				'zone_code'    => $result['zone_code'],
+				'country'      => $result['country']
 			);
 
 			$data['addresses'][] = array(
@@ -494,8 +498,16 @@ class ControllerAccountAddress extends Controller {
 			$this->error['lastname'] = $this->language->get('error_lastname');
 		}
 
-		if ((utf8_strlen(trim($this->request->post['address_1'])) < 3) || (utf8_strlen(trim($this->request->post['address_1'])) > 128)) {
-			$this->error['address_1'] = $this->language->get('error_address_1');
+		if ((utf8_strlen(trim($this->request->post['address'])) < 3) || (utf8_strlen(trim($this->request->post['address'])) > 128)) {
+			$this->error['address'] = $this->language->get('error_address');
+		}
+		
+		if ((utf8_strlen(trim($this->request->post['number'])) < 1)) {
+			$this->error['number'] = $this->language->get('error_number');
+		}
+		
+		if ((utf8_strlen(trim($this->request->post['neighborhood'])) < 3) || (utf8_strlen(trim($this->request->post['neighborhood'])) > 128)) {
+			$this->error['neighborhood'] = $this->language->get('error_neighborhood');
 		}
 
 		if ((utf8_strlen(trim($this->request->post['city'])) < 2) || (utf8_strlen(trim($this->request->post['city'])) > 128)) {
