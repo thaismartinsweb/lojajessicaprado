@@ -15,18 +15,7 @@
 	    <?php $class = 'col-sm-12'; ?>
 	    <?php } ?>
 	    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-	      <h2><?php echo $heading_title; ?></h2>
-	      <?php if ($thumb || $description) { ?>
-	      <div class="row">
-	        <?php if ($thumb) { ?>
-	        <div class="col-sm-2"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>" class="img-thumbnail" /></div>
-	        <?php } ?>
-	        <?php if ($description) { ?>
-	        <div class="col-sm-10"><?php echo $description; ?></div>
-	        <?php } ?>
-	      </div>
-	      <hr>
-	      <?php } ?>
+	      <h2><p><span><?php echo $heading_title; ?></span></p></h2>
 	      <?php if ($products) { ?>
 	      <div class="row">
 	        <div class="col-md-2 col-md-offset-4 text-right">
@@ -35,11 +24,11 @@
 	        <div class="col-md-3 text-right">
 	          <select id="input-sort" class="form-control" onchange="location = this.value;">
 	            <?php foreach ($sorts as $sorts) { ?>
-	            <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
-	            <option value="<?php echo $sorts['href']; ?>" selected="selected"><?php echo $sorts['text']; ?></option>
-	            <?php } else { ?>
-	            <option value="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></option>
-	            <?php } ?>
+		            <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
+		            	<option value="<?php echo $sorts['href']; ?>" selected="selected"><?php echo $sorts['text']; ?></option>
+		            <?php } else { ?>
+		            	<option value="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></option>
+		            <?php } ?>
 	            <?php } ?>
 	          </select>
 	        </div>
@@ -91,8 +80,8 @@
 				        <?php } ?>
 			        </div> -->
 			        <div class="buy-button">
-						<span class="link"><a href="<?php echo $product['href']; ?>"><i class="fa fa-plus"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_readmore; ?></span></a></span>
-			        	<button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>
+						<span class="link"><a href="<?php echo $product['href']; ?>"><i class="fa fa-plus"></i> <?php echo $button_readmore; ?></a></span>
+			        	<button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i> <?php echo $button_cart; ?></button>
 			        </div>
 			      </div>
 			    </div>
@@ -106,9 +95,9 @@
 	      <?php } ?>
 	      <?php if (!$categories && !$products) { ?>
 	      <p><?php echo $text_empty; ?></p>
-	      <div class="buttons">
-	        <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
-	      </div>
+		      <div class="buttons">
+		        <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-pink"><?php echo $button_continue; ?></a></div>
+		      </div>
 	      <?php } ?>
 	      <?php echo $content_bottom; ?></div>
 	    <?php echo $column_right; ?></div>

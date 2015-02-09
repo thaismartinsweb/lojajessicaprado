@@ -1,4 +1,4 @@
-<h2><i class="fa fa-chevron-right"></i> Bolos Sob Encomenda</h2>
+<h2><p><span>Categorias</span></p></h2>
 <div class="list-group">
   <?php foreach ($categories as $category) { ?>
   <?php if ($category['category_id'] == $category_id) { ?>

@@ -27,7 +27,7 @@
 		    <?php } ?>
 		    
 		    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-		      <h2><?php echo $text_address_book; ?></h2>
+		      <h2><p><span><?php echo $text_address_book; ?></span></p></h2>
 		      <?php if ($addresses) { ?>
 			      <table class="table table-striped">
 			        <?php foreach ($addresses as $result) { ?>
@@ -39,7 +39,7 @@
 			        <?php } ?>
 			      </table>
 		      <?php } else { ?>
-		      	<p><?php echo $text_empty; ?></p>
+		      	<p style="padding:50px 0;text-align:center;"><?php echo $text_empty; ?></p>
 		      <?php } ?>
 		      
 		      <div class="buttons clearfix">

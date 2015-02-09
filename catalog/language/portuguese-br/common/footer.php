@@ -3,6 +3,7 @@
 $_['text_information']  = 'Informações';
 $_['text_service']      = 'Serviços ao cliente';
 $_['text_extra']        = 'Outros serviços';
+$_['text_tags']         = 'Tags';
 $_['text_contact']      = 'Entre em contato';
 $_['text_return']       = 'Solicitar devolução';
 $_['text_sitemap']      = 'Mapa do site';
@@ -15,4 +16,4 @@ $_['text_order']        = 'Histórico de pedidos';
 $_['text_wishlist']     = 'Lista de desejos';
 $_['text_newsletter']   = 'Informativo';
 $_['text_powered']      = '%s &copy; %s';
-$_['text_development']	= 'by <a href="#">thaismartins.rocks</a>'; 
+$_['text_development']	= 'by <a href="http://thaismartins.rocks" target="_blank">thaismartins.rocks</a>'; 

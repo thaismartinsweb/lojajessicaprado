@@ -19,268 +19,71 @@
 		    <?php } ?>
 		    
 		    <div id="content" class="<?php echo $class; ?>"> <?php echo $content_top; ?>
-		      <h2><?php echo $text_edit_address; ?></h2>
-		      <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+		      <h2><p><span><?php echo $text_edit_address; ?></span></p></h2>
+		      
+		      <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
 		        <fieldset>
-		          <div class="form-group required">
-		            <label class="control-label" for="input-firstname"><?php echo $entry_firstname; ?></label>
-		            <div class="col-sm-10">
-		              <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-firstname" class="form-control" />
-		              <?php if ($error_firstname) { ?>
-		              	<div class="text-danger"><?php echo $error_firstname; ?></div>
-		              <?php } ?>
-		            </div>
-		          </div>
-		          <div class="form-group required">
-		            <label class="control-label" for="input-lastname"><?php echo $entry_lastname; ?></label>
-		            <div class="col-sm-10">
-		              <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />
-		              <?php if ($error_lastname) { ?>
-		              	<div class="text-danger"><?php echo $error_lastname; ?></div>
-		              <?php } ?>
-		            </div>
-		          </div>
-		          <div class="form-group">
-		            <label class="control-label" for="input-company"><?php echo $entry_company; ?></label>
-		            <div class="col-sm-10">
-		              <input type="text" name="company" value="<?php echo $company; ?>" placeholder="<?php echo $entry_company; ?>" id="input-company" class="form-control" />
-		            </div>
-		          </div>
-		          <div class="form-group required">
-		            <label class="control-label" for="input-address-1"><?php echo $entry_address_1; ?></label>
-		            <div class="col-sm-10">
-		              <input type="text" name="address_1" value="<?php echo $address_1; ?>" placeholder="<?php echo $entry_address_1; ?>" id="input-address-1" class="form-control" />
-		              <?php if ($error_address_1) { ?>
-		              	<div class="text-danger"><?php echo $error_address_1; ?></div>
-		              <?php } ?>
-		            </div>
-		          </div>
-		          <div class="form-group">
-		            <label class="control-label" for="input-address-2"><?php echo $entry_address_2; ?></label>
-		            <div class="col-sm-10">
-		              <input type="text" name="address_2" value="<?php echo $address_2; ?>" placeholder="<?php echo $entry_address_2; ?>" id="input-address-2" class="form-control" />
-		            </div>
-		          </div>
-		          <div class="form-group required">
-		            <label class="control-label" for="input-city"><?php echo $entry_city; ?></label>
-		            <div class="col-sm-10">
-		              <input type="text" name="city" value="<?php echo $city; ?>" placeholder="<?php echo $entry_city; ?>" id="input-city" class="form-control" />
-		              <?php if ($error_city) { ?>
-		              <div class="text-danger"><?php echo $error_city; ?></div>
-		              <?php } ?>
-		            </div>
-		          </div>
-		          <div class="form-group required">
-		            <label class="control-label" for="input-postcode"><?php echo $entry_postcode; ?></label>
-		            <div class="col-sm-10">
-		              <input type="text" name="postcode" value="<?php echo $postcode; ?>" placeholder="<?php echo $entry_postcode; ?>" id="input-postcode" class="form-control" />
-		              <?php if ($error_postcode) { ?>
-		              <div class="text-danger"><?php echo $error_postcode; ?></div>
-		              <?php } ?>
-		            </div>
-		          </div>
-		          <div class="form-group required">
-		            <label class="control-label" for="input-country"><?php echo $entry_country; ?></label>
-		            <div class="col-sm-10">
-		              <select name="country_id" id="input-country" class="form-control">
-		                <option value=""><?php echo $text_select; ?></option>
-		                <?php foreach ($countries as $country) { ?>
-		                <?php if ($country['country_id'] == $country_id) { ?>
-		                <option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
-		                <?php } else { ?>
-		                <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
-		                <?php } ?>
-		                <?php } ?>
-		              </select>
-		              <?php if ($error_country) { ?>
-		              <div class="text-danger"><?php echo $error_country; ?></div>
-		              <?php } ?>
-		            </div>
-		          </div>
-		          <div class="form-group required">
-		            <label class="control-label" for="input-zone"><?php echo $entry_zone; ?></label>
-		            <div class="col-sm-10">
-		              <select name="zone_id" id="input-zone" class="form-control">
-		              </select>
-		              <?php if ($error_zone) { ?>
-		              <div class="text-danger"><?php echo $error_zone; ?></div>
-		              <?php } ?>
-		            </div>
-		          </div>
-		          <?php foreach ($custom_fields as $custom_field) { ?>
-		          <?php if ($custom_field['location'] == 'address') { ?>
-		          <?php if ($custom_field['type'] == 'select') { ?>
-		          <div class="form-group<?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
-		            <label class="control-label" for="input-custom-field<?php echo $custom_field['custom_field_id']; ?>"><?php echo $custom_field['name']; ?></label>
-		            <div class="col-sm-10">
-		              <select name="custom_field[<?php echo $custom_field['custom_field_id']; ?>]" id="input-custom-field<?php echo $custom_field['custom_field_id']; ?>" class="form-control">
-		                <option value=""><?php echo $text_select; ?></option>
-		                <?php foreach ($custom_field['custom_field_value'] as $custom_field_value) { ?>
-		                <?php if (isset($address_custom_field[$custom_field['custom_field_id']]) && $custom_field_value['custom_field_value_id'] == $address_custom_field[$custom_field['custom_field_id']]) { ?>
-		                <option value="<?php echo $custom_field_value['custom_field_value_id']; ?>" selected="selected"><?php echo $custom_field_value['name']; ?></option>
-		                <?php } else { ?>
-		                <option value="<?php echo $custom_field_value['custom_field_value_id']; ?>"><?php echo $custom_field_value['name']; ?></option>
-		                <?php } ?>
-		                <?php } ?>
-		              </select>
-		              <?php if (isset($error_custom_field[$custom_field['custom_field_id']])) { ?>
-		              <div class="text-danger"><?php echo $error_custom_field[$custom_field['custom_field_id']]; ?></div>
-		              <?php } ?>
-		            </div>
-		          </div>
-		          <?php } ?>
-		          <?php if ($custom_field['type'] == 'radio') { ?>
-		          <div class="form-group<?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
-		            <label class="control-label"><?php echo $custom_field['name']; ?></label>
-		            <div class="col-sm-10">
-		              <div>
-		                <?php foreach ($custom_field['custom_field_value'] as $custom_field_value) { ?>
-		                <div class="radio">
-		                  <?php if (isset($address_custom_field[$custom_field['custom_field_id']]) && $custom_field_value['custom_field_value_id'] == $address_custom_field[$custom_field['custom_field_id']]) { ?>
-		                  <label>
-		                    <input type="radio" name="custom_field[<?php echo $custom_field['custom_field_id']; ?>]" value="<?php echo $custom_field_value['custom_field_value_id']; ?>" checked="checked" />
-		                    <?php echo $custom_field_value['name']; ?></label>
-		                  <?php } else { ?>
-		                  <label>
-		                    <input type="radio" name="custom_field[<?php echo $custom_field['custom_field_id']; ?>]" value="<?php echo $custom_field_value['custom_field_value_id']; ?>" />
-		                    <?php echo $custom_field_value['name']; ?></label>
-		                  <?php } ?>
-		                </div>
-		                <?php } ?>
-		              </div>
-		              <?php if (isset($error_custom_field[$custom_field['custom_field_id']])) { ?>
-		              <div class="text-danger"><?php echo $error_custom_field[$custom_field['custom_field_id']]; ?></div>
-		              <?php } ?>
-		            </div>
-		          </div>
-		          <?php } ?>
-		          <?php if ($custom_field['type'] == 'checkbox') { ?>
-		          <div class="form-group<?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
-		            <label class="control-label"><?php echo $custom_field['name']; ?></label>
-		            <div class="col-sm-10">
-		              <div>
-		                <?php foreach ($custom_field['custom_field_value'] as $custom_field_value) { ?>
-		                <div class="checkbox">
-		                  <?php if (isset($address_custom_field[$custom_field['custom_field_id']]) && in_array($custom_field_value['custom_field_value_id'], $address_custom_field[$custom_field['custom_field_id']])) { ?>
-		                  <label>
-		                    <input type="checkbox" name="custom_field[<?php echo $custom_field['custom_field_id']; ?>][]" value="<?php echo $custom_field_value['custom_field_value_id']; ?>" checked="checked" />
-		                    <?php echo $custom_field_value['name']; ?></label>
-		                  <?php } else { ?>
-		                  <label>
-		                    <input type="checkbox" name="custom_field[<?php echo $custom_field['custom_field_id']; ?>][]" value="<?php echo $custom_field_value['custom_field_value_id']; ?>" />
-		                    <?php echo $custom_field_value['name']; ?></label>
-		                  <?php } ?>
-		                </div>
-		                <?php } ?>
-		              </div>
-		              <?php if (isset($error_custom_field[$custom_field['custom_field_id']])) { ?>
-		              <div class="text-danger"><?php echo $error_custom_field[$custom_field['custom_field_id']]; ?></div>
-		              <?php } ?>
-		            </div>
-		          </div>
-		          <?php } ?>
-		          <?php if ($custom_field['type'] == 'text') { ?>
-		          <div class="form-group<?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
-		            <label class="control-label" for="input-custom-field<?php echo $custom_field['custom_field_id']; ?>"><?php echo $custom_field['name']; ?></label>
-		            <div class="col-sm-10">
-		              <input type="text" name="custom_field[<?php echo $custom_field['custom_field_id']; ?>]" value="<?php echo (isset($address_custom_field[$custom_field['custom_field_id']]) ? $address_custom_field[$custom_field['custom_field_id']] : $custom_field['value']); ?>" placeholder="<?php echo $custom_field['name']; ?>" id="input-custom-field<?php echo $custom_field['custom_field_id']; ?>" class="form-control" />
-		              <?php if (isset($error_custom_field[$custom_field['custom_field_id']])) { ?>
-		              <div class="text-danger"><?php echo $error_custom_field[$custom_field['custom_field_id']]; ?></div>
-		              <?php } ?>
-		            </div>
-		          </div>
-		          <?php } ?>
-		          <?php if ($custom_field['type'] == 'textarea') { ?>
-		          <div class="form-group<?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
-		            <label class="control-label" for="input-custom-field<?php echo $custom_field['custom_field_id']; ?>"><?php echo $custom_field['name']; ?></label>
-		            <div class="col-sm-10">
-		              <textarea name="custom_field[<?php echo $custom_field['custom_field_id']; ?>]" rows="5" placeholder="<?php echo $custom_field['name']; ?>" id="input-custom-field<?php echo $custom_field['custom_field_id']; ?>" class="form-control"><?php echo (isset($address_custom_field[$custom_field['custom_field_id']]) ? $address_custom_field[$custom_field['custom_field_id']] : $custom_field['value']); ?></textarea>
-		              <?php if (isset($error_custom_field[$custom_field['custom_field_id']])) { ?>
-		              <div class="text-danger"><?php echo $error_custom_field[$custom_field['custom_field_id']]; ?></div>
-		              <?php } ?>
-		            </div>
-		          </div>
-		          <?php } ?>
-		          <?php if ($custom_field['type'] == 'file') { ?>
-		          <div class="form-group<?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
-		            <label class="control-label"><?php echo $custom_field['name']; ?></label>
-		              <button type="button" id="button-custom-field<?php echo $custom_field['custom_field_id']; ?>" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-default"><i class="fa fa-upload"></i> <?php echo $button_upload; ?></button>
-		              <input type="hidden" name="custom_field[<?php echo $custom_field['custom_field_id']; ?>]" value="<?php echo (isset($address_custom_field[$custom_field['custom_field_id']]) ? $address_custom_field[$custom_field['custom_field_id']] : ''); ?>" />
-		              <?php if (isset($error_custom_field[$custom_field['custom_field_id']])) { ?>
-		              <div class="text-danger"><?php echo $error_custom_field[$custom_field['custom_field_id']]; ?></div>
-		              <?php } ?>
-		          </div>
-		          <?php } ?>
-		          <?php if ($custom_field['type'] == 'date') { ?>
-		          <div class="form-group<?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
-		            <label class="control-label" for="input-custom-field<?php echo $custom_field['custom_field_id']; ?>"><?php echo $custom_field['name']; ?></label>
-		            <div class="col-sm-10">
-		              <div class="input-group date">
-		                <input type="text" name="custom_field[<?php echo $custom_field['custom_field_id']; ?>]" value="<?php echo (isset($address_custom_field[$custom_field['custom_field_id']]) ? $address_custom_field[$custom_field['custom_field_id']] : $custom_field['value']); ?>" placeholder="<?php echo $custom_field['name']; ?>" data-date-format="YYYY-MM-DD" id="input-custom-field<?php echo $custom_field['custom_field_id']; ?>" class="form-control" />
-		                <span class="input-group-btn">
-		                <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
-		                </span></div>
-		              <?php if (isset($error_custom_field[$custom_field['custom_field_id']])) { ?>
-		              <div class="text-danger"><?php echo $error_custom_field[$custom_field['custom_field_id']]; ?></div>
-		              <?php } ?>
-		            </div>
-		          </div>
-		          <?php } ?>
-		          <?php if ($custom_field['type'] == 'time') { ?>
-		          <div class="form-group<?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
-		            <label class="control-label" for="input-custom-field<?php echo $custom_field['custom_field_id']; ?>"><?php echo $custom_field['name']; ?></label>
-		            <div class="col-sm-10">
-		              <div class="input-group time">
-		                <input type="text" name="custom_field[<?php echo $custom_field['custom_field_id']; ?>]" value="<?php echo (isset($address_custom_field[$custom_field['custom_field_id']]) ? $address_custom_field[$custom_field['custom_field_id']] : $custom_field['value']); ?>" placeholder="<?php echo $custom_field['name']; ?>" data-date-format="HH:mm" id="input-custom-field<?php echo $custom_field['custom_field_id']; ?>" class="form-control" />
-		                <span class="input-group-btn">
-		                <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
-		                </span></div>
-		              <?php if (isset($error_custom_field[$custom_field['custom_field_id']])) { ?>
-		              <div class="text-danger"><?php echo $error_custom_field[$custom_field['custom_field_id']]; ?></div>
-		              <?php } ?>
-		            </div>
-		          </div>
-		          <?php } ?>
-		          <?php if ($custom_field['type'] == 'datetime') { ?>
-		          <div class="form-group<?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
-		            <label class="control-label" for="input-custom-field<?php echo $custom_field['custom_field_id']; ?>"><?php echo $custom_field['name']; ?></label>
-		            <div class="col-sm-10">
-		              <div class="input-group datetime">
-		                <input type="text" name="custom_field[<?php echo $custom_field['custom_field_id']; ?>]" value="<?php echo (isset($address_custom_field[$custom_field['custom_field_id']]) ? $address_custom_field[$custom_field['custom_field_id']] : $custom_field['value']); ?>" placeholder="<?php echo $custom_field['name']; ?>" data-date-format="YYYY-MM-DD HH:mm" id="input-custom-field<?php echo $custom_field['custom_field_id']; ?>" class="form-control" />
-		                <span class="input-group-btn">
-		                <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
-		                </span></div>
-		              <?php if (isset($error_custom_field[$custom_field['custom_field_id']])) { ?>
-		              <div class="text-danger"><?php echo $error_custom_field[$custom_field['custom_field_id']]; ?></div>
-		              <?php } ?>
-		            </div>
-		          </div>
-		          <?php } ?>
-		          <?php } ?>
-		          <?php } ?>
-		          <div class="form-group">
-		            <label class="control-label"><?php echo $entry_default; ?></label>
-		            <div class="col-sm-10">
-		              <?php if ($default) { ?>
-		              <label class="radio-inline">
-		                <input type="radio" name="default" value="1" checked="checked" />
-		                <?php echo $text_yes; ?></label>
-		              <label class="radio-inline">
-		                <input type="radio" name="default" value="0" />
-		                <?php echo $text_no; ?></label>
-		              <?php } else { ?>
-		              <label class="radio-inline">
-		                <input type="radio" name="default" value="1" />
-		                <?php echo $text_yes; ?></label>
-		              <label class="radio-inline">
-		                <input type="radio" name="default" value="0" checked="checked" />
-		                <?php echo $text_no; ?></label>
-		              <?php } ?>
-		            </div>
-		          </div>
+		        
+		          <div class="form-group required col-sm-6">
+				      <label class="control-label" for="input-firstname"><?php echo $entry_firstname; ?></label>
+				      <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-firstname" class="form-control" />
+				    </div>
+				    
+				    <div class="form-group required col-sm-6">
+				      <label class="control-label" for="input-lastname"><?php echo $entry_lastname; ?></label>
+				      <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />
+				    </div>
+				    
+				    <div class="form-group required col-sm-4">
+				        <label class="control-label" for="input-postcode"><?php echo $entry_postcode; ?></label>
+				        <div class="input-group btn-block">
+				        	<input type="text" name="postcode" value="<?php echo $postcode; ?>" placeholder="<?php echo $entry_postcode; ?>" id="input-postcode" class="form-control" />
+				       		<span class="input-group-btn">
+					        	<input type="button" class="btn btn-pink-sm" data-toggle="tooltip" data-original-title="Buscar endereço através do CEP" data-loading-text="Carregando..." id="button-cep" value="<?php echo $search_postcode ?>" />
+					        </span>
+				        </div>
+				      </div>
+				      
+				      <div class="form-group col-sm-2">
+				      	<label class="control-label" for="input-postcode">&nbsp;</label>
+				      	<p style="font-size:12px">Não sabe seu CEP?<br /><a href="http://www.buscacep.correios.com.br/servicos/dnec/index.do" target="_blank">Clique aqui</a></p>
+				      </div>
+				    
+				    <div class="form-group col-sm-6">
+				      <label class="control-label" for="input-company"><?php echo $entry_company; ?></label>
+				      <input type="text" name="company" value="<?php echo $company; ?>" placeholder="<?php echo $entry_company; ?>" id="input-company" class="form-control" />
+				    </div>
+				    
+				    <div class="form-group required col-sm-6">
+				      <label class="control-label" for="input-address"><?php echo $entry_address; ?></label>
+				      <input type="text" name="address" value="<?php echo $address; ?>" placeholder="<?php echo $entry_address; ?>" id="input-address" class="form-control" />
+				    </div>
+				    
+				    <div class="form-group required col-sm-2">
+				      <label class="control-label" for="input-number"><?php echo $entry_number; ?></label>
+				      <input type="text" name="number" value="<?php echo $number; ?>" placeholder="<?php echo $entry_number; ?>" id="input-number" class="form-control" />
+				    </div>
+				    
+				    <div class="form-group col-sm-4">
+				      <label class="control-label" for="input-complement"><?php echo $entry_complement; ?></label>
+				      <input type="text" name="complement" value="<?php echo $complement; ?>" placeholder="<?php echo $entry_complement; ?>" id="input-complement" class="form-control" />
+				    </div>
+				    
+				    <div class="form-group required col-sm-6">
+				      <label class="control-label" for="input-neighborhood"><?php echo $entry_neighborhood; ?></label>
+				      <input type="text" name="neighborhood" value="<?php echo $neighborhood; ?>" placeholder="<?php echo $entry_neighborhood; ?>" id="input-neighborhood" class="form-control" />
+				    </div>
+				    
+				    <div class="form-group required col-sm-6">
+				      <label class="control-label" for="input-city"><?php echo $entry_city; ?> <b><i>(Entregas somente na Grande São Paulo)</i></b></label>
+				      <input type="text" name="city" value="<?php echo $city; ?>" placeholder="<?php echo $entry_city; ?>" id="input-city" class="form-control" />
+				    </div>
+		         
 		        </fieldset>
 		        <div class="buttons clearfix">
 		          <div class="pull-right">
+		            <input type="hidden" name="country_id" value="30" />
+	  				<input type="hidden" name="zone_id" value="464" />
 		            <input type="submit" value="<?php echo $button_continue; ?>" class="btn btn-pink" />
 		          </div>
 		        </div>
@@ -290,5 +93,60 @@
 	</div>
 </div>
 <script type="text/javascript"><!--
+$(document).ready(function(){
+	$('.form-group').removeClass('has-error');
+	<?php if(isset($errors)){ ?>
+		<?php foreach($errors as $error => $value ){ ?>
+			<?php if($value != ""){ ?>
+				$('#input-<?php echo $error ?>').closest('.form-group').addClass('has-error');
+				$('#input-<?php echo $error ?>').closest('.form-group').append('<div class="text-danger"><?php echo $value?></div>');
+			<?php } ?>
+		<?php } ?>
+	<?php } ?>
+});
+$('#input-postcode').mask('99999-999');
+$("#input-telephone").mask("(99) 9999-9999?9", {placeholder: " "});
+//Search for CEP
+$(document).delegate('#button-cep', 'click', function() {
+    $.ajax({
+        url: 'index.php?route=checkout/cep/search',
+        type: 'post',
+        data: 'postcode=' + encodeURIComponent($('input[name=\'postcode\']').val().replace(/[^0-9]+/g, "")),
+        dataType: 'json',
+        beforeSend: function() {
+        	$('#button-payment-address').button('loading');
+        	$('#input-address').val('');
+        	$('#input-neighborhood').val('');
+        	$('#input-city').val('');
+		},  
+        complete: function() {
+			$('#button-payment-address').button('reset');
+        },          
+        success: function(json) {
+            $('.alert, .text-danger').remove();
+
+            if(json['error']){
+
+            	var element = $('#input-postcode');
+				
+				if ($(element).parent().hasClass('input-group')) {
+					$(element).parent().after('<div class="text-danger">' + json['error'] + '</div>');
+				} else {
+					$(element).after('<div class="text-danger">' + json['error'] + '</div>');
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+				
+            }
+            
+            if(json['resultado'] == 1){
+                $('#input-address').val(json['tipo_logradouro'] + ' ' + json['logradouro']);
+                $('#input-neighborhood').val(json['bairro']);
+            	$('#input-city').val(json['cidade']);
+            }
+        }
+    });
+});
 //--></script>
 <?php echo $footer; ?>

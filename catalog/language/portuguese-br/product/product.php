@@ -19,7 +19,7 @@ $_['text_no_reviews']          = 'Não há comentários para este produto.';
 $_['text_note']                = '<span class="text-danger">Nota:</span> O HTML não é traduzido!';
 $_['text_success']             = 'Obrigado por seu comentário. Ele foi enviado para aprovação.';
 $_['text_related']             = 'Produtos relacionados';
-$_['text_tags']                = 'Etiquetas:';
+$_['text_tags']                = 'Tags:';
 $_['text_error']               = 'Produto não encontrado!';
 $_['text_payment_recurring']   = 'Assinatura';
 $_['text_trial_description']   = '%s a cada %d %s(s) repetido por %d vez(es)';
@@ -30,9 +30,10 @@ $_['text_week']                = 'Semanal';
 $_['text_semi_month']          = 'Quinzenal';
 $_['text_month']               = 'Mensal';
 $_['text_year']                = 'Anual';
+$_['text_for']                 = 'Por';
 
 // Entry
-$_['entry_qty']                = 'Qtd';
+$_['entry_qty']                = 'Quantidade';
 $_['entry_name']               = 'Seu nome';
 $_['entry_review']             = 'Seu comentário';
 $_['entry_rating']             = 'Avaliação';

@@ -28,7 +28,7 @@
 	    
 	    <div id="content" class="<?php echo $class; ?>">
 	      <?php echo $content_top; ?>
-	      <h1><?php echo $heading_title; ?></h1>
+	      <h2><p><span><?php echo $heading_title; ?></span></p></h2>
 	      <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
 	        <fieldset>
 	        

@@ -5,7 +5,7 @@ $_['direction']             = 'ltr';
 $_['date_format_short']     = 'd/m/Y';
 $_['date_format_long']      = 'l dS F Y';
 $_['time_format']           = 'h:i:s A';
-$_['datetime_format']       = 'd/m/Y H:i:s';
+$_['datetime_format']       = 'd/m/Y H:i';
 $_['decimal_point']         = ',';
 $_['thousand_point']        = '.';
 
@@ -58,6 +58,7 @@ $_['button_quote']          = 'Calcular Frete';
 $_['button_list']           = 'Lista';
 $_['button_grid']           = 'Grade';
 $_['button_map']            = 'Ver mapa no Google';
+$_['button_read_more']      = 'Ver Mais';
 
 // Error
 $_['error_exception']       = 'Código do erro(%s): %s de %s na linha %s';

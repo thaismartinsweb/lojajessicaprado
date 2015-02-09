@@ -17,13 +17,14 @@
 	    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
 	      <div class="row">
 	        <?php if ($column_left && $column_right) { ?>
-	        <?php $class = 'col-sm-6'; ?>
+	        	<?php $class = 'col-sm-6'; ?>
 	        <?php } elseif ($column_left || $column_right) { ?>
-	        <?php $class = 'col-sm-6'; ?>
+	        	<?php $class = 'col-sm-6'; ?>
 	        <?php } else { ?>
-	        <?php $class = 'col-sm-8'; ?>
+	        	<?php $class = 'col-sm-8'; ?>
 	        <?php } ?>
 	        <div class="<?php echo $class; ?>">
+	        
 	          <?php if ($thumb || $images) { ?>
 	          <ul class="thumbnails">
 	            <?php if ($thumb) { ?>
@@ -70,7 +71,7 @@
 	            <?php } ?>
 	            <?php if ($review_status) { ?>
 	            <div class="tab-pane" id="tab-review">
-	              <form class="form-horizontal">
+	              <form role="form">
 	                <div id="review"></div>
 	                <h2><?php echo $text_write; ?></h2>
 	                <?php if ($review_guest) { ?>
@@ -123,7 +124,9 @@
 	        <?php $class = 'col-sm-4'; ?>
 	        <?php } ?>
 	        <div class="<?php echo $class; ?>">
+	        
 	          <h1><?php echo $heading_title; ?></h1>
+	          
 	          <?php if ($review_status) { ?>
 		          <div class="rating">
 		            <p>
@@ -136,48 +139,33 @@
 		              <?php } ?>
 		          </div>
 	          <?php } ?>
-	          <ul class="list-unstyled">
-	            <?php if ($manufacturer) { ?>
-	            <li><?php echo $text_manufacturer; ?> <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></li>
-	            <?php } ?>
-	            <li><?php echo $text_model; ?> <?php echo $model; ?></li>
-	            <?php if ($reward) { ?>
-	            <li><?php echo $text_reward; ?> <?php echo $reward; ?></li>
-	            <?php } ?>
-	            <li><?php echo $text_stock; ?> <?php echo $stock; ?></li>
-	          </ul>
+	          
+	           <?php if ($tags) { ?>
+			      <small><?php echo $text_tags; ?>
+			        <?php for ($i = 0; $i < count($tags); $i++) { ?>
+				        <?php if ($i < (count($tags) - 1)) { ?>
+				        	<a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a>,
+				        <?php } else { ?>
+				        	<a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a>
+				        <?php } ?>
+			        <?php } ?>
+			      </small>
+		      <?php } ?>
+
 	          <?php if ($price) { ?>
-	          <ul class="list-unstyled">
+	         
 	            <?php if (!$special) { ?>
-	            <li>
-	              <h2><?php echo $price; ?></h2>
-	            </li>
+		            <p class="price"><span><?php echo $text_for; ?></span> <?php echo $price; ?></p>
 	            <?php } else { ?>
-	            <li><span style="text-decoration: line-through;"><?php echo $price; ?></span></li>
-	            <li>
-	              <h2><?php echo $special; ?></h2>
-	            </li>
+	            	 <ul class="list-unstyled">
+			            <li><span style="text-decoration: line-through;"><?php echo $price; ?></span></li>
+			            <li><h2><?php echo $special; ?></h2></li>
+		             </ul>
 	            <?php } ?>
-	            <?php if ($tax) { ?>
-	            <li><?php echo $text_tax; ?> <?php echo $tax; ?></li>
-	            <?php } ?>
-	            <?php if ($points) { ?>
-	            <li><?php echo $text_points; ?> <?php echo $points; ?></li>
-	            <?php } ?>
-	            <?php if ($discounts) { ?>
-	            <li>
-	              <hr>
-	            </li>
-	            <?php foreach ($discounts as $discount) { ?>
-	            <li><?php echo $discount['quantity']; ?><?php echo $text_discount; ?><?php echo $discount['price']; ?></li>
-	            <?php } ?>
-	            <?php } ?>
-	          </ul>
+	         
 	          <?php } ?>
 	          <div id="product">
 	            <?php if ($options) { ?>
-	            <hr>
-	            <h3><?php echo $text_option; ?></h3>
 	            <?php foreach ($options as $option) { ?>
 	            <?php if ($option['type'] == 'select') { ?>
 	            <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
@@ -312,16 +300,44 @@
 	              <div class="help-block" id="recurring-description"></div>
 	            </div>
 	            <?php } ?>
-	            <div class="form-group">
-	              <label class="control-label" for="input-quantity"><?php echo $entry_qty; ?></label>
-	              <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
-	              <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
-	              <br />
-	              <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-soft-green btn-lg btn-block"><i class="fa fa-shopping-cart"></i> <?php echo $button_cart; ?></button>
-	            </div>
-	            <?php if ($minimum > 1) { ?>
-	            <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
-	            <?php } ?>
+              <?php if ($minimum > 1) { ?>
+            	<div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
+              <?php } ?>
+              <div class="form-group col-sm-6" style="padding:0;">
+              	<label class="control-label" for="input-quantity"><?php echo $entry_qty; ?></label>
+              	<input type="number" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
+              	<input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
+              </div>
+              <div class="form-group col-sm-6" style="padding:0 0 0 15px;">
+             	<button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-soft-green btn-lg btn-block"><i class="fa fa-shopping-cart"></i> <?php echo $button_cart; ?></button>
+              </div>
+              <div class="col-sm-12" style="padding:0 0 0 15px;">
+              	  <p>Compartilhe:</p>
+				  <a href="#" onclick="
+						    window.open(
+						      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+						      'facebook-share-dialog', 
+						      'width=626,height=436'); 
+						    return false;">
+					  <i class="fa fa-facebook"></i> Facebook
+				  </a> &nbsp;
+				  <a href="#" onclick="
+						    window.open(
+						      'http://twitter.com/share?text=<?php echo $heading_title; ?>&url'+encodeURIComponent(location.href)+'&via=thamartins', 
+						      'facebook-share-dialog', 
+						      'width=626,height=436'); 
+						    return false;">
+					  <i class="fa fa-twitter"></i> Twitter
+				  </a> &nbsp;
+				  <a href="#" onclick="
+						    window.open(
+						      'https://plus.google.com/share?url='+encodeURIComponent(location.href), 
+						      'facebook-share-dialog', 
+						      'width=626,height=436'); 
+						    return false;">
+					  <i class="fa fa-google-plus"></i> Google+
+				  </a>
+				</div>
 	          </div>
 	        </div>
 	      </div>
@@ -343,34 +359,10 @@
 	            <div class="caption">
 	              <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
 	              <p><?php echo $product['description']; ?></p>
-	              <?php if ($product['rating']) { ?>
-	              <div class="rating">
-	                <?php for ($i = 1; $i <= 5; $i++) { ?>
-	                <?php if ($product['rating'] < $i) { ?>
-	                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-	                <?php } else { ?>
-	                <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-	                <?php } ?>
-	                <?php } ?>
-	              </div>
-	              <?php } ?>
-	              <?php if ($product['price']) { ?>
-	              <p class="price">
-	                <?php if (!$product['special']) { ?>
-	                <?php echo $product['price']; ?>
-	                <?php } else { ?>
-	                <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
-	                <?php } ?>
-	                <?php if ($product['tax']) { ?>
-	                <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
-	                <?php } ?>
-	              </p>
-	              <?php } ?>
 	            </div>
 	            <div class="button-group">
-	              <button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');"><span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span> <i class="fa fa-shopping-cart"></i></button>
-	              <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
-	              <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>
+	              <span class="link"><a href="<?php echo $product['href']; ?>"><i class="fa fa-plus"></i> <?php echo $button_readmore; ?></a></span>
+			      <button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i> <?php echo $button_cart; ?></button>
 	            </div>
 	          </div>
 	        </div>
@@ -384,17 +376,6 @@
 	        <?php $i++; ?>
 	        <?php } ?>
 	      </div>
-	      <?php } ?>
-	      <?php if ($tags) { ?>
-	      <p><?php echo $text_tags; ?>
-	        <?php for ($i = 0; $i < count($tags); $i++) { ?>
-	        <?php if ($i < (count($tags) - 1)) { ?>
-	        <a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a>,
-	        <?php } else { ?>
-	        <a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a>
-	        <?php } ?>
-	        <?php } ?>
-	      </p>
 	      <?php } ?>
 	      <?php echo $content_bottom; ?></div>
 	    <?php echo $column_right; ?></div>

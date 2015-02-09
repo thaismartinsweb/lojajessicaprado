@@ -185,9 +185,9 @@ class ControllerAccountAddress extends Controller {
 		$data['button_back'] = $this->language->get('button_back');
 
 		if (isset($this->error['warning'])) {
-			$data['error_warning'] = $this->error['warning'];
+			$data['errors']['warning'] = $this->error['warning'];
 		} else {
-			$data['error_warning'] = '';
+			$data['errors']['warning'] = '';
 		}
 
 		if (isset($this->session->data['success'])) {
@@ -306,64 +306,73 @@ class ControllerAccountAddress extends Controller {
 		$data['entry_firstname'] = $this->language->get('entry_firstname');
 		$data['entry_lastname'] = $this->language->get('entry_lastname');
 		$data['entry_company'] = $this->language->get('entry_company');
-		$data['entry_address_1'] = $this->language->get('entry_address_1');
-		$data['entry_address_2'] = $this->language->get('entry_address_2');
+		$data['entry_address'] = $this->language->get('entry_address');
+		$data['entry_number'] = $this->language->get('entry_number');
+		$data['entry_complement'] = $this->language->get('entry_complement');
+		$data['entry_neighborhood'] = $this->language->get('entry_neighborhood');
 		$data['entry_postcode'] = $this->language->get('entry_postcode');
 		$data['entry_city'] = $this->language->get('entry_city');
 		$data['entry_country'] = $this->language->get('entry_country');
 		$data['entry_zone'] = $this->language->get('entry_zone');
-		$data['entry_default'] = $this->language->get('entry_default');
+		
+		$data['search_postcode'] = $this->language->get('search_postcode');
 
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_back'] = $this->language->get('button_back');
 		$data['button_upload'] = $this->language->get('button_upload');
 
 		if (isset($this->error['firstname'])) {
-			$data['error_firstname'] = $this->error['firstname'];
+			$data['errors']['firstname'] = $this->error['firstname'];
 		} else {
-			$data['error_firstname'] = '';
+			$data['errors']['firstname'] = '';
 		}
 
 		if (isset($this->error['lastname'])) {
-			$data['error_lastname'] = $this->error['lastname'];
+			$data['errors']['lastname'] = $this->error['lastname'];
 		} else {
-			$data['error_lastname'] = '';
+			$data['errors']['lastname'] = '';
 		}
 
-		if (isset($this->error['address_1'])) {
-			$data['error_address_1'] = $this->error['address_1'];
+		if (isset($this->error['address'])) {
+			$data['errors']['address'] = $this->error['address'];
 		} else {
-			$data['error_address_1'] = '';
+			$data['errors']['address'] = '';
+		}
+		
+		if (isset($this->error['number'])) {
+			$data['errors']['number'] = $this->error['number'];
+		} else {
+			$data['errors']['number'] = '';
+		}
+		
+		if (isset($this->error['neighborhood'])) {
+			$data['errors']['neighborhood'] = $this->error['neighborhood'];
+		} else {
+			$data['errors']['neighborhood'] = '';
 		}
 
 		if (isset($this->error['city'])) {
-			$data['error_city'] = $this->error['city'];
+			$data['errors']['city'] = $this->error['city'];
 		} else {
-			$data['error_city'] = '';
+			$data['errors']['city'] = '';
 		}
 
 		if (isset($this->error['postcode'])) {
-			$data['error_postcode'] = $this->error['postcode'];
+			$data['errors']['postcode'] = $this->error['postcode'];
 		} else {
-			$data['error_postcode'] = '';
+			$data['errors']['postcode'] = '';
 		}
 
 		if (isset($this->error['country'])) {
-			$data['error_country'] = $this->error['country'];
+			$data['errors']['country'] = $this->error['country'];
 		} else {
-			$data['error_country'] = '';
+			$data['errors']['country'] = '';
 		}
 
 		if (isset($this->error['zone'])) {
-			$data['error_zone'] = $this->error['zone'];
+			$data['errors']['zone'] = $this->error['zone'];
 		} else {
-			$data['error_zone'] = '';
-		}
-
-		if (isset($this->error['custom_field'])) {
-			$data['error_custom_field'] = $this->error['custom_field'];
-		} else {
-			$data['error_custom_field'] = array();
+			$data['errors']['zone'] = '';
 		}
 		
 		if (!isset($this->request->get['address_id'])) {
@@ -399,23 +408,31 @@ class ControllerAccountAddress extends Controller {
 		} else {
 			$data['company'] = '';
 		}
-
-		if (isset($this->request->post['address_1'])) {
-			$data['address_1'] = $this->request->post['address_1'];
+		
+		if (isset($this->request->post['address'])) {
+			$data['address'] = $this->request->post['address'];
 		} elseif (!empty($address_info)) {
-			$data['address_1'] = $address_info['address_1'];
+			$data['address'] = $address_info['address'];
 		} else {
-			$data['address_1'] = '';
+			$data['address'] = '';
 		}
-
-		if (isset($this->request->post['address_2'])) {
-			$data['address_2'] = $this->request->post['address_2'];
+		
+		if (isset($this->request->post['number'])) {
+			$data['number'] = $this->request->post['number'];
 		} elseif (!empty($address_info)) {
-			$data['address_2'] = $address_info['address_2'];
+			$data['number'] = $address_info['number'];
 		} else {
-			$data['address_2'] = '';
+			$data['number'] = '';
 		}
-
+		
+		if (isset($this->request->post['neighborhood'])) {
+			$data['neighborhood'] = $this->request->post['neighborhood'];
+		} elseif (!empty($address_info)) {
+			$data['neighborhood'] = $address_info['neighborhood'];
+		} else {
+			$data['neighborhood'] = '';
+		}
+		
 		if (isset($this->request->post['postcode'])) {
 			$data['postcode'] = $this->request->post['postcode'];
 		} elseif (!empty($address_info)) {
@@ -430,22 +447,6 @@ class ControllerAccountAddress extends Controller {
 			$data['city'] = $address_info['city'];
 		} else {
 			$data['city'] = '';
-		}
-
-		if (isset($this->request->post['country_id'])) {
-			$data['country_id'] = $this->request->post['country_id'];
-		}  elseif (!empty($address_info)) {
-			$data['country_id'] = $address_info['country_id'];
-		} else {
-			$data['country_id'] = $this->config->get('config_country_id');
-		}
-
-		if (isset($this->request->post['zone_id'])) {
-			$data['zone_id'] = $this->request->post['zone_id'];
-		}  elseif (!empty($address_info)) {
-			$data['zone_id'] = $address_info['zone_id'];
-		} else {
-			$data['zone_id'] = '';
 		}
 
 		$this->load->model('localisation/country');

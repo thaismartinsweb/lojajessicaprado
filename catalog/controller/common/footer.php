@@ -6,6 +6,7 @@ class ControllerCommonFooter extends Controller {
 		$data['text_information'] = $this->language->get('text_information');
 		$data['text_service'] = $this->language->get('text_service');
 		$data['text_extra'] = $this->language->get('text_extra');
+		$data['text_tags'] = $this->language->get('text_tags');
 		$data['text_contact'] = $this->language->get('text_contact');
 		$data['text_return'] = $this->language->get('text_return');
 		$data['text_sitemap'] = $this->language->get('text_sitemap');
@@ -17,8 +18,11 @@ class ControllerCommonFooter extends Controller {
 		$data['text_order'] = $this->language->get('text_order');
 		$data['text_wishlist'] = $this->language->get('text_wishlist');
 		$data['text_newsletter'] = $this->language->get('text_newsletter');
+		$data['telephone'] = $this->config->get('config_telephone');
+		$data['email'] = $this->config->get('config_email');
 
 		$this->load->model('catalog/information');
+		$this->load->model('catalog/product');
 
 		$data['informations'] = array();
 
@@ -42,7 +46,28 @@ class ControllerCommonFooter extends Controller {
 		$data['order'] = $this->url->link('account/order', '', 'SSL');
 		$data['wishlist'] = $this->url->link('account/wishlist', '', 'SSL');
 		$data['newsletter'] = $this->url->link('account/newsletter', '', 'SSL');
+		
+		$allTags = $this->model_catalog_product->getAllTags();
+		$limit_tags = 10;
+		$i = 0;
 
+		if(is_array($allTags)) {
+          foreach($allTags as $tag ) {
+          	$tags[] = array(
+          			'name' => $tag,
+          			'href' => $this->url->link('product/search', 'tag=' . trim($tag))
+          	);
+          	
+          	if($i > $limit_tags){
+          		break;
+          	}
+          	
+          	$i++;
+          }
+		}
+		
+		$data['tags'] = $tags;
+		
 		$data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
 		$data['development'] = $this->language->get('text_development');
 		
