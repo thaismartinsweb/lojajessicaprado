@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <?php if ($informations) { ?>
-      <div class="col-sm-3 text-center">
+      <div class="col col-sm-3 text-center">
         <h5><?php echo $text_information; ?></h5>
         <ul class="list-unstyled">
           <?php foreach ($informations as $information) { ?>
@@ -12,7 +12,7 @@
         </ul>
       </div>
       <?php } ?>
-      <div class="col-sm-4 col-sm-offset-1 text-center">
+      <div class="col col-sm-4 col-sm-offset-1 text-center">
         <h5><?php echo $text_tags; ?></h5>
           <div id="tags-cloud">
 	          <?php if(is_array($tags)) { ?>
@@ -22,7 +22,7 @@
 	          <?php } ?>
           </div>
       </div>
-      <div class="col-sm-3 col-sm-offset-1 text-center">
+      <div class="col col-sm-3 col-sm-offset-1 text-center">
         <h5><?php echo $text_contact; ?></h5>
         <ul class="list-unstyled">
           <li><?php echo $telephone; ?></li>

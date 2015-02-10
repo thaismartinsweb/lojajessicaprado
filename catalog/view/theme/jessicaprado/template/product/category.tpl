@@ -52,10 +52,11 @@
 			  <?php foreach ($products as $product) { ?>
 			  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			    <div class="product-thumb transition">
-			      <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
-			      <div class="caption">
-			        <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
-			        <p><?php echo $product['description']; ?></p>
+			      <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a></div>
+			      	<div class="caption">
+				        <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
+				        <p><?php echo $product['description']; ?></p>
+			        </div>
 			        <?php if ($product['rating']) { ?>
 			        <div class="rating">
 			          <?php for ($i = 1; $i <= 5; $i++) { ?>
@@ -80,12 +81,11 @@
 				        <?php } ?>
 			        </div> -->
 			        <div class="buy-button">
-						<span class="link"><a href="<?php echo $product['href']; ?>"><i class="fa fa-plus"></i> <?php echo $button_readmore; ?></a></span>
+						<!-- <span class="link"><a href="<?php echo $product['href']; ?>"><i class="fa fa-plus"></i> <?php echo $button_readmore; ?></a></span> -->
 			        	<button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i> <?php echo $button_cart; ?></button>
 			        </div>
 			      </div>
 			    </div>
-			  </div>
 			  <?php } ?>
 		  </div>
 	      <div class="row">

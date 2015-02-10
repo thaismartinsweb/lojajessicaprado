@@ -346,22 +346,15 @@
 	      <div class="row">
 	        <?php $i = 0; ?>
 	        <?php foreach ($products as $product) { ?>
-	        <?php if ($column_left && $column_right) { ?>
-	        <?php $class = 'col-lg-6 col-md-6 col-sm-12 col-xs-12'; ?>
-	        <?php } elseif ($column_left || $column_right) { ?>
-	        <?php $class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12'; ?>
-	        <?php } else { ?>
-	        <?php $class = 'col-lg-3 col-md-3 col-sm-6 col-xs-12'; ?>
-	        <?php } ?>
-	        <div class="<?php echo $class; ?>">
+	        <div class="col-sm-2">
 	          <div class="product-thumb transition">
-	            <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
+	            <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a></div>
 	            <div class="caption">
 	              <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
 	              <p><?php echo $product['description']; ?></p>
 	            </div>
 	            <div class="button-group">
-	              <span class="link"><a href="<?php echo $product['href']; ?>"><i class="fa fa-plus"></i> <?php echo $button_readmore; ?></a></span>
+	              <!-- <span class="link"><a href="<?php echo $product['href']; ?>"><i class="fa fa-plus"></i> <?php echo $button_readmore; ?></a></span> -->
 			      <button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i> <?php echo $button_cart; ?></button>
 	            </div>
 	          </div>
